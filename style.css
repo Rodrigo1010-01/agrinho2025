@@ -2,24 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-  /* Nova Paleta de Cores Verdes */
-  --primary-green: #388E3C; /* Um verde floresta profundo */
-  --secondary-green: #66BB6A; /* Um verde mais vibrante para detalhes */
-  --accent-leaf: #9CCC65; /* Um verde folha mais claro */
+  /* Paleta de Cores Verdes Aprimorada */
+  --primary-green: #2E7D32; /* Verde floresta profundo */
+  --secondary-green: #4CAF50; /* Verde médio vibrante */
+  --accent-green: #66BB6A; /* Verde folha mais claro para destaques */
   --dark-text-green: #1B5E20; /* Verde bem escuro para textos principais */
-  --light-bg-green: #E8F5E9; /* Fundo verde super suave para seções */
+  --light-bg-green: #F1F8E9; /* Fundo verde super suave */
   --text-color: #333; /* Cor padrão do texto */
   --white: #FFFFFF;
-  --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --medium-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --medium-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   --red-button: #D32F2F; /* Vermelho para o botão de fechar ou destaque */
-  --red-button-hover: #C62828;
+  --red-button-hover: #B71C1C;
 }
 
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--light-bg-green); /* Fundo geral mais suave */
+  background-color: var(--light-bg-green); /* Fundo geral suave */
   color: var(--text-color);
   line-height: 1.6;
 }
@@ -81,7 +81,7 @@ body {
   text-align: center;
   margin-bottom: 60px;
   padding: 40px 0;
-  background: linear-gradient(to right, rgba(232, 245, 233, 0.8), rgba(232, 245, 233, 0.95)); /* Fundo mais claro e suave */
+  background: linear-gradient(to right, rgba(241, 248, 233, 0.8), rgba(241, 248, 233, 0.95)); /* Fundo mais claro e suave */
   border-radius: 8px;
   box-shadow: var(--soft-shadow);
 }
@@ -125,20 +125,22 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
+  /* Alinha os itens ao topo para manter a consistência se houver variações de altura */
+  align-items: start;
 }
 
 .plant-card {
   background-color: var(--white);
   border-radius: 10px;
-  /* overflow: hidden; **Removido** aqui, pois o modal vai flutuar acima */
+  overflow: hidden; /* **IMPORTANTE:** Para que o conteúdo expandido seja cortado se exceder o raio da borda */
   box-shadow: var(--soft-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  padding-bottom: 15px;
+  padding-bottom: 15px; /* Espaço para o botão e para o conteúdo expandido no final */
   display: flex;
   flex-direction: column;
-  position: relative; /* Base para o posicionamento do modal */
-  min-height: 400px; /* Garante que as cards tenham altura consistente */
+  position: relative; /* Necessário para o z-index do botão, embora não para o dropdown */
+  min-height: 400px; /* Garante que as cards tenham altura consistente ANTES da expansão */
 }
 
 .plant-card:hover {
@@ -149,7 +151,7 @@ body {
 .plant-box {
   position: relative;
   height: 180px;
-  background-color: var(--secondary-green); /* Verde mais vibrante para as imagens */
+  background-color: var(--secondary-green); /* Verde vibrante para as caixas de imagem */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,8 +181,8 @@ body {
   padding: 0 15px;
   font-size: 0.95em;
   color: #555;
-  margin-bottom: 15px;
-  flex-grow: 1;
+  margin-bottom: 15px; /* Espaçamento entre descrição e botão */
+  flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
 }
 
 /* Oculta o checkbox real */
@@ -197,15 +199,15 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: auto;
+  margin-top: auto; /* Empurra o botão para o final da card */
   font-size: 0.95em;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  align-self: center;
+  align-self: center; /* Centraliza o botão horizontalmente */
   position: relative;
   min-width: 120px;
   text-align: center;
-  z-index: 1; /* Z-index padrão, o modal terá um maior */
+  z-index: 1; /* Z-index para o botão */
 }
 
 .read-more-btn:hover {
@@ -226,73 +228,42 @@ body {
 }
 
 /* -----------------------------------------------------------------------
-   ESTILO PARA A "CAIXA" (MODAL) DE INFORMAÇÕES DETALHADAS
+   ESTILO PARA A CAIXA QUE ABRE EMBAIXO (DROPDOWN)
    -----------------------------------------------------------------------
 */
 .more-info-content {
-  /* Posicionamento fixo para flutuar sobre a tela */
-  position: fixed; /* Ou 'absolute' se quiser que role com a página, mas 'fixed' é mais modal */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centraliza o elemento */
-
-  width: 90%;
-  max-width: 600px; /* Limita a largura do modal */
-  max-height: 80vh; /* Limita a altura para caber na tela */
-  overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
-
-  background-color: var(--white);
-  border: 2px solid var(--accent-leaf); /* Borda verde folha para destaque */
-  border-radius: 15px;
-  box-shadow: var(--medium-shadow); /* Sombra mais pronunciada */
-  padding: 30px;
+  max-height: 0; /* Começa com altura zero */
+  overflow: hidden; /* Esconde o conteúdo */
+  padding: 0 15px; /* Padding inicial zero */
+  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out; /* Transição suave */
   text-align: left;
-  z-index: 100; /* **ALTÍSSIMO** para aparecer sobre tudo */
-
-  /* Transições para o efeito de aparecer/desaparecer */
-  opacity: 0;
-  visibility: hidden; /* Garante que não é clicável ou interage quando escondido */
-  transform: translate(-50%, -50%) scale(0.8); /* Começa menor e invisível */
-  transition: opacity 0.4s ease-out, visibility 0.4s ease-out, transform 0.4s ease-out;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Impede que ele encolha */
+  /* Ajustes para visual da caixa quando aberta */
+  background-color: var(--light-bg-green); /* Fundo verde claro para a caixa */
+  border-top: 1px solid var(--accent-green); /* Linha divisória */
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+  margin-top: 10px; /* Espaço entre o botão e o início do conteúdo */
 }
 
-/* Quando o checkbox está marcado, o conteúdo aparece */
+/* Quando o checkbox está marcado, o conteúdo se expande */
 .read-more-toggle:checked ~ .more-info-content {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1); /* Volta ao tamanho normal */
+  max-height: 1000px; /* Valor alto para acomodar o texto */
+  padding: 15px; /* Adiciona padding quando expandido */
+  /* Remove transform e opacity que eram do modal */
 }
 
 .more-info-content p {
   margin: 0;
   padding-bottom: 10px;
-  color: var(--text-color); /* Garante a cor correta do texto interno */
+  color: var(--text-color);
 }
 
 .more-info-content p strong {
   font-weight: bold;
-  color: var(--dark-text-green); /* Negrito com cor de texto mais escura */
+  color: var(--dark-text-green);
 }
-
-/* Opcional: Efeito de "overlay" escuro atrás do modal */
-.read-more-toggle:checked ~ .more-info-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-  z-index: 99; /* Abaixo do modal, mas acima do restante do conteúdo */
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
-}
-.more-info-overlay {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
-}
-
 
 .footer {
   text-align: center;
@@ -316,7 +287,7 @@ body {
 }
 
 .footer .github-link a:hover {
-  color: var(--accent-leaf); /* Verde folha no hover do ícone */
+  color: var(--accent-green); /* Verde no hover do ícone */
 }
 
 /* Responsividade */
@@ -350,12 +321,6 @@ body {
   .main-nav ul {
     flex-direction: column;
     gap: 10px;
-  }
-
-  /* Ajuste do modal para telas menores */
-  .more-info-content {
-    width: 95%; /* Ocupa mais largura em telas pequenas */
-    padding: 20px;
   }
 }
 
