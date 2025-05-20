@@ -55,12 +55,10 @@ body {
 }
 
 .header-title {
-  /* ESTILIZAÇÃO DA FONTE PARA O CABEÇALHO */
-  font-family: 'Playfair Display', serif; /* Aplicando a fonte Playfair Display */
-  font-size: 2.2em; /* Um pouco maior para destaque */
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2em;
   font-weight: 700;
   margin-top: 15px;
-  /* Garante que o texto esteja centralizado */
   text-align: center;
 }
 
@@ -76,7 +74,7 @@ body {
 }
 
 .hero-section {
-  text-align: center; /* Já centraliza o conteúdo */
+  text-align: center;
   margin-bottom: 50px;
   padding: 30px 0;
 }
@@ -87,7 +85,6 @@ body {
   font-size: 2.8em;
   color: var(--dark-green);
   margin: 0;
-  /* Garante que o h1 esteja centralizado */
   text-align: center;
 }
 
@@ -97,7 +94,6 @@ body {
   margin: 5px 0 15px;
   color: var(--primary-color);
   text-transform: uppercase;
-  /* Garante que o h2 esteja centralizado */
   text-align: center;
 }
 
@@ -106,7 +102,7 @@ body {
   color: #666;
   max-width: 600px;
   margin: 0 auto;
-  text-align: center; /* Garante que o subtítulo também esteja centralizado */
+  text-align: center;
 }
 
 .grid-section {
@@ -126,6 +122,7 @@ body {
   box-shadow: var(--shadow-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  padding-bottom: 15px; /* Adicionado espaço para o botão e texto */
 }
 
 .plant-card:hover {
@@ -169,7 +166,55 @@ body {
   padding: 15px;
   font-size: 0.95em;
   color: #555;
+  margin-bottom: 10px; /* Espaço entre a descrição e o botão */
 }
+
+/* Esconder o checkbox real */
+.more-info-toggle {
+  display: none;
+}
+
+/* Estilo do botão "Ver Mais" */
+.read-more-btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: var(--dark-green);
+}
+
+/* Esconder o conteúdo detalhado por padrão */
+.more-info {
+  max-height: 0; /* Esconde o conteúdo */
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Adiciona transição suave */
+  padding: 0 15px; /* Padding zero para o conteúdo escondido */
+}
+
+.more-info p {
+  margin: 15px 0; /* Margem para o parágrafo dentro do more-info */
+  text-align: left; /* Alinhe o texto detalhado à esquerda para melhor leitura */
+}
+
+/* Mostrar o conteúdo detalhado quando o checkbox é marcado */
+.more-info-toggle:checked ~ .read-more-btn {
+    /* Mudar texto ou estilo do botão quando expandido (opcional) */
+    background-color: var(--dark-green);
+}
+
+.more-info-toggle:checked ~ .more-info {
+  max-height: 500px; /* Altura suficiente para mostrar o conteúdo */
+  padding: 15px; /* Adiciona padding quando expandido */
+}
+
 
 .footer {
   text-align: center;
@@ -185,7 +230,7 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
   .header-title {
-    font-size: 1.8em; /* Ajuste para telas menores */
+    font-size: 1.8em;
   }
 
   .title h1 {
@@ -213,7 +258,7 @@ body {
 
 @media (max-width: 480px) {
   .header-title {
-    font-size: 1.5em; /* Ajuste adicional para telas muito pequenas */
+    font-size: 1.5em;
   }
 
   .title h1 {
