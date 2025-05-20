@@ -129,13 +129,14 @@ body {
 .plant-card {
   background-color: var(--white);
   border-radius: 10px;
-  overflow: hidden;
+  /* Removi o overflow: hidden AQUI, pois o conteúdo expandido pode "sair" */
   box-shadow: var(--shadow-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   padding-bottom: 15px; /* Mantém um padding inferior para o conteúdo visível */
   display: flex;
   flex-direction: column;
+  position: relative; /* Essencial para posicionar o more-info-content */
 }
 
 .plant-card:hover {
@@ -151,7 +152,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 10px 10px 0 0;
-  overflow: hidden;
+  overflow: hidden; /* Mantém a imagem dentro dos limites arredondados */
 }
 
 .plant-box img {
@@ -195,7 +196,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: auto; /* IMPORTANTE: Empurra o botão para o final da card em um flex container */
+  margin-top: auto; /* Empurra o botão para o final da card em um flex container */
   font-size: 0.95em;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -230,18 +231,33 @@ body {
   max-height: 0;
   overflow: hidden;
   padding: 0 15px;
-  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
+  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out, transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
   text-align: left;
-  margin-top: 10px;
-  width: 100%; /* Garante que o conteúdo ocupe a largura total */
-  box-sizing: border-box; /* Inclui padding na largura */
+  /* margin-top: 10px; Removido pois não será mais usado com position: absolute */
+  width: 100%;
+  box-sizing: border-box;
   flex-shrink: 0; /* Impede que ele encolha */
+
+  /* NOVO: Propriedades para posicionar o conteúdo expandido absolutamente */
+  position: absolute; /* Tira o elemento do fluxo normal do documento */
+  top: 100%; /* Posiciona o topo do elemento na base da plant-card */
+  left: 0;
+  background-color: var(--white); /* Fundo branco para o conteúdo expandido */
+  border-radius: 0 0 10px 10px; /* Arredonda as bordas inferiores da card */
+  box-shadow: var(--shadow-medium); /* Adiciona uma sombra para destacar a expansão */
+  z-index: 1; /* Garante que ele apareça sobre outros elementos */
+  transform: translateY(0); /* Começa na posição normal para garantir o alinhamento inicial */
+  opacity: 0; /* Começa invisível */
+  pointer-events: none; /* Impede cliques quando invisível */
 }
 
 /* Quando o checkbox está marcado, o conteúdo se expande */
 .read-more-toggle:checked ~ .more-info-content {
-  max-height: 1000px; /* Um valor bem alto para cobrir qualquer quantidade de texto */
+  max-height: 1000px; /* Valor alto para acomodar o conteúdo */
   padding: 15px; /* Adiciona padding quando expandido */
+  transform: translateY(0); /* Volta à posição normal (topo: 100%) */
+  opacity: 1; /* Fica visível */
+  pointer-events: auto; /* Permite cliques quando visível */
 }
 
 .more-info-content p {
@@ -306,37 +322,4 @@ body {
 
   .container {
     margin: 20px auto;
-    padding: 20px;
-  }
-
-  .main-nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-title {
-    font-size: 1.5em;
-  }
-
-  .title h1 {
-    font-size: 2em;
-  }
-
-  .title h2 {
-    font-size: 2.5em;
-  }
-
-  .subtitle {
-    font-size: 1em;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .plant-box {
-    height: 150px;
-  }
-}
+    padding:
