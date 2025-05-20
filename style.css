@@ -55,14 +55,17 @@ body {
 }
 
 .header-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8em;
+  /* ESTILIZAÇÃO DA FONTE PARA O CABEÇALHO */
+  font-family: 'Playfair Display', serif; /* Aplicando a fonte Playfair Display */
+  font-size: 2.2em; /* Um pouco maior para destaque */
   font-weight: 700;
   margin-top: 15px;
+  /* Garante que o texto esteja centralizado */
+  text-align: center;
 }
 
 .container {
-  max-width: 960px; /* Aumentado para mais espaço */
+  max-width: 960px;
   margin: 40px auto;
   padding: 30px;
   background-color: var(--white);
@@ -73,7 +76,7 @@ body {
 }
 
 .hero-section {
-  text-align: center;
+  text-align: center; /* Já centraliza o conteúdo */
   margin-bottom: 50px;
   padding: 30px 0;
 }
@@ -81,17 +84,21 @@ body {
 .title h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 2.8em; /* Tamanho maior para o título principal */
+  font-size: 2.8em;
   color: var(--dark-green);
   margin: 0;
+  /* Garante que o h1 esteja centralizado */
+  text-align: center;
 }
 
 .title h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 3.5em; /* Destaque maior para o subtítulo */
+  font-size: 3.5em;
   margin: 5px 0 15px;
   color: var(--primary-color);
   text-transform: uppercase;
+  /* Garante que o h2 esteja centralizado */
+  text-align: center;
 }
 
 .subtitle {
@@ -99,6 +106,7 @@ body {
   color: #666;
   max-width: 600px;
   margin: 0 auto;
+  text-align: center; /* Garante que o subtítulo também esteja centralizado */
 }
 
 .grid-section {
@@ -107,7 +115,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 }
 
@@ -127,7 +135,7 @@ body {
 
 .plant-box {
   position: relative;
-  height: 180px; /* Aumentado para melhor visualização da imagem */
+  height: 180px;
   background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
@@ -140,7 +148,7 @@ body {
 .plant-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que a imagem preencha o espaço */
+  object-fit: cover;
   display: block;
 }
 
@@ -153,8 +161,8 @@ body {
   border-radius: 0 0 10px 10px;
   text-align: center;
   width: 100%;
-  box-sizing: border-box; /* Garante que padding não aumente a largura */
-  display: block; /* Garante que o label ocupe a largura total */
+  box-sizing: border-box;
+  display: block;
 }
 
 .description {
@@ -177,7 +185,7 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
   .header-title {
-    font-size: 1.5em;
+    font-size: 1.8em; /* Ajuste para telas menores */
   }
 
   .title h1 {
@@ -205,7 +213,7 @@ body {
 
 @media (max-width: 480px) {
   .header-title {
-    font-size: 1.2em;
+    font-size: 1.5em; /* Ajuste adicional para telas muito pequenas */
   }
 
   .title h1 {
@@ -217,7 +225,7 @@ body {
   }
 
   .grid {
-    grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+    grid-template-columns: 1fr;
   }
 
   .plant-box {
