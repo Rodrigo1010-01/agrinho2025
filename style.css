@@ -1,74 +1,226 @@
+/* Importar fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+  --primary-color: #4CAF50; /* Um verde mais vibrante */
+  --secondary-color: #8BC34A; /* Um verde mais claro */
+  --accent-color: #FFC107; /* Um toque de amarelo para destaque */
+  --dark-green: #2E7D32; /* Verde mais escuro para textos */
+  --light-bg: #F5F5F5; /* Fundo claro para seções */
+  --text-color: #333;
+  --white: #FFFFFF;
+  --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #7C9B5E;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
 .header {
-  background-color: #F25C5C;
-  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 15px 0;
   text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  border-radius: 0 0 10px 10px;
-  max-width: 600px;
-  margin: auto;
+  box-shadow: var(--shadow-medium);
   position: relative;
-  top: 20px;
+  z-index: 10;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.main-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1em;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-top: 15px;
 }
 
 .container {
-  background-color: white;
-  max-width: 600px;
+  max-width: 960px; /* Aumentado para mais espaço */
   margin: 40px auto;
-  padding: 40px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
   position: relative;
+  z-index: 1;
 }
 
-.title {
+.hero-section {
   text-align: center;
-  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 30px 0;
 }
 
 .title h1 {
-  font-family: 'Georgia', serif;
-  font-weight: bold;
-  font-size: 20px;
-  margin: 5px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.8em; /* Tamanho maior para o título principal */
+  color: var(--dark-green);
+  margin: 0;
 }
 
 .title h2 {
-  font-size: 28px;
-  margin: 0;
-  color: #007A56;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5em; /* Destaque maior para o subtítulo */
+  margin: 5px 0 15px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid-section {
+  margin-top: 40px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo */
+  gap: 30px;
+}
+
+.plant-card {
+  background-color: var(--light-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.plant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
 }
 
 .plant-box {
-  background-color: #BFE0AC;
-  border-radius: 15px;
-  height: 80px;
+  position: relative;
+  height: 180px; /* Aumentado para melhor visualização da imagem */
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.plant-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha o espaço */
+  display: block;
 }
 
 .label {
-  background-color: #7C9B5E;
-  height: 20px;
-  border-radius: 10px;
-  margin-top: 5px;
+  background-color: var(--dark-green);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.1em;
+  padding: 10px 15px;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box; /* Garante que padding não aumente a largura */
+  display: block; /* Garante que o label ocupe a largura total */
+}
+
+.description {
+  padding: 15px;
+  font-size: 0.95em;
+  color: #555;
 }
 
 .footer {
   text-align: center;
-  color: white;
-  font-size: 12px;
-  margin-top: 10px;
+  color: #888;
+  font-size: 0.9em;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: var(--dark-green);
+  color: var(--white);
+  border-radius: 10px 10px 0 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.5em;
+  }
+
+  .title h1 {
+    font-size: 2em;
+  }
+
+  .title h2 {
+    font-size: 2.5em;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .container {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1.2em;
+  }
+
+  .title h1 {
+    font-size: 1.6em;
+  }
+
+  .title h2 {
+    font-size: 2em;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+  }
+
+  .plant-box {
+    height: 150px;
+  }
 }
