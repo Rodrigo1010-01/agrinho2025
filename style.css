@@ -133,7 +133,7 @@ body {
   box-shadow: var(--shadow-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  padding-bottom: 15px;
+  padding-bottom: 15px; /* Mantém um padding inferior para o conteúdo visível */
   display: flex;
   flex-direction: column;
 }
@@ -177,8 +177,8 @@ body {
   padding: 0 15px;
   font-size: 0.95em;
   color: #555;
-  margin-bottom: 15px;
-  flex-grow: 1;
+  margin-bottom: 15px; /* Espaçamento entre descrição e botão */
+  flex-grow: 1; /* Faz a descrição ocupar o espaço disponível e empurrar o botão */
 }
 
 /* Oculta o checkbox real */
@@ -195,14 +195,15 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: auto; /* IMPORTANTE: Empurra o botão para o final da card em um flex container */
   font-size: 0.95em;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  align-self: center;
+  align-self: center; /* Centraliza o botão horizontalmente dentro da coluna flex */
   position: relative;
   min-width: 120px;
   text-align: center;
+  z-index: 2; /* Garante que o botão fique acima do conteúdo expandido, se necessário */
 }
 
 .read-more-btn:hover {
@@ -232,6 +233,9 @@ body {
   transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
   text-align: left;
   margin-top: 10px;
+  width: 100%; /* Garante que o conteúdo ocupe a largura total */
+  box-sizing: border-box; /* Inclui padding na largura */
+  flex-shrink: 0; /* Impede que ele encolha */
 }
 
 /* Quando o checkbox está marcado, o conteúdo se expande */
