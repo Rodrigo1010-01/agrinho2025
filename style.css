@@ -2,33 +2,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-  --primary-color: #4CAF50; /* Um verde mais vibrante */
-  --secondary-color: #8BC34A; /* Um verde mais claro */
-  --accent-color: #FFC107; /* Um toque de amarelo para destaque */
-  --dark-green: #2E7D32; /* Verde mais escuro para textos */
-  --light-bg: #F5F5F5; /* Fundo claro para seções */
-  --text-color: #333;
+  /* Nova Paleta de Cores Verdes */
+  --primary-green: #388E3C; /* Um verde floresta profundo */
+  --secondary-green: #66BB6A; /* Um verde mais vibrante para detalhes */
+  --accent-leaf: #9CCC65; /* Um verde folha mais claro */
+  --dark-text-green: #1B5E20; /* Verde bem escuro para textos principais */
+  --light-bg-green: #E8F5E9; /* Fundo verde super suave para seções */
+  --text-color: #333; /* Cor padrão do texto */
   --white: #FFFFFF;
-  --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08);
-  --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.12);
-  --red-button: #F44336; /* Vermelho para o botão "Ver Mais" */
-  --red-button-hover: #D32F2F; /* Vermelho mais escuro para hover */
+  --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --medium-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --red-button: #D32F2F; /* Vermelho para o botão de fechar ou destaque */
+  --red-button-hover: #C62828;
 }
 
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--light-bg);
+  background-color: var(--light-bg-green); /* Fundo geral mais suave */
   color: var(--text-color);
   line-height: 1.6;
 }
 
 .header {
-  background-color: var(--primary-color);
+  background-color: var(--primary-green); /* Verde floresta para o cabeçalho */
   color: var(--white);
   padding: 15px 0;
   text-align: center;
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--medium-shadow);
   position: relative;
   z-index: 10;
 }
@@ -62,6 +63,7 @@ body {
   font-weight: 700;
   margin-top: 15px;
   text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -70,26 +72,25 @@ body {
   padding: 30px;
   background-color: var(--white);
   border-radius: 12px;
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--medium-shadow);
   position: relative;
   z-index: 1;
 }
 
-/* Melhoria no design do cabeçalho principal */
 .hero-section {
   text-align: center;
   margin-bottom: 60px;
   padding: 40px 0;
-  background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.95));
+  background: linear-gradient(to right, rgba(232, 245, 233, 0.8), rgba(232, 245, 233, 0.95)); /* Fundo mais claro e suave */
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--soft-shadow);
 }
 
 .title h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: 3.2em;
-  color: var(--dark-green);
+  color: var(--dark-text-green); /* Verde escuro para o título principal */
   margin: 0;
   text-align: center;
   line-height: 1.1;
@@ -100,7 +101,7 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 4em;
   margin: 10px 0 20px;
-  color: var(--primary-color);
+  color: var(--primary-green); /* Verde floresta para o subtítulo grande */
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 2px;
@@ -129,28 +130,26 @@ body {
 .plant-card {
   background-color: var(--white);
   border-radius: 10px;
-  overflow: hidden; /* **IMPORTANTE:** Esconde qualquer conteúdo que saia dos limites */
-  box-shadow: var(--shadow-light);
+  /* overflow: hidden; **Removido** aqui, pois o modal vai flutuar acima */
+  box-shadow: var(--soft-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   padding-bottom: 15px;
   display: flex;
   flex-direction: column;
-  position: relative; /* **ESSENCIAL:** Para que o conteúdo absoluto se posicione corretamente */
-
-  /* Define uma altura mínima para manter as cards alinhadas antes da expansão */
-  min-height: 400px; /* **AJUSTE AQUI:** Se o conteúdo inicial de alguma card for muito mais alto/baixo, altere este valor */
+  position: relative; /* Base para o posicionamento do modal */
+  min-height: 400px; /* Garante que as cards tenham altura consistente */
 }
 
 .plant-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--medium-shadow);
 }
 
 .plant-box {
   position: relative;
   height: 180px;
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-green); /* Verde mais vibrante para as imagens */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,7 +165,7 @@ body {
 }
 
 .plant-name-label {
-  color: var(--dark-green);
+  color: var(--dark-text-green);
   font-weight: 700;
   font-size: 1.3em;
   padding: 15px 15px 5px;
@@ -181,7 +180,7 @@ body {
   font-size: 0.95em;
   color: #555;
   margin-bottom: 15px;
-  flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
+  flex-grow: 1;
 }
 
 /* Oculta o checkbox real */
@@ -192,25 +191,25 @@ body {
 /* Estilo do label (que age como botão) */
 .read-more-btn {
   display: inline-block;
-  background-color: var(--red-button);
+  background-color: var(--secondary-green); /* Verde vibrante para o botão */
   color: var(--white);
   padding: 8px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: auto; /* Empurra o botão para o final da card em um flex container */
+  margin-top: auto;
   font-size: 0.95em;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  align-self: center; /* Centraliza o botão horizontalmente */
-  position: relative; /* Para garantir que o z-index funcione */
+  align-self: center;
+  position: relative;
   min-width: 120px;
   text-align: center;
-  z-index: 3; /* **IMPORTANTE:** Garante que o botão fique acima do conteúdo expandido */
+  z-index: 1; /* Z-index padrão, o modal terá um maior */
 }
 
 .read-more-btn:hover {
-  background-color: var(--red-button-hover);
+  background-color: var(--primary-green); /* Escurece no hover */
   transform: translateY(-2px);
 }
 
@@ -226,64 +225,84 @@ body {
   display: inline;
 }
 
-/* Estilo do conteúdo detalhado que se expande */
+/* -----------------------------------------------------------------------
+   ESTILO PARA A "CAIXA" (MODAL) DE INFORMAÇÕES DETALHADAS
+   -----------------------------------------------------------------------
+*/
 .more-info-content {
-  max-height: 0; /* Começa com altura zero */
-  overflow: hidden; /* Esconde o conteúdo inicialmente */
-  padding: 0 15px; /* Padding inicial zero */
-  /* Transições suaves para todos os efeitos */
-  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out, transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+  /* Posicionamento fixo para flutuar sobre a tela */
+  position: fixed; /* Ou 'absolute' se quiser que role com a página, mas 'fixed' é mais modal */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza o elemento */
+
+  width: 90%;
+  max-width: 600px; /* Limita a largura do modal */
+  max-height: 80vh; /* Limita a altura para caber na tela */
+  overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
+
+  background-color: var(--white);
+  border: 2px solid var(--accent-leaf); /* Borda verde folha para destaque */
+  border-radius: 15px;
+  box-shadow: var(--medium-shadow); /* Sombra mais pronunciada */
+  padding: 30px;
   text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-  flex-shrink: 0;
+  z-index: 100; /* **ALTÍSSIMO** para aparecer sobre tudo */
 
-  /* **CRÍTICO:** Posicionamento absoluto para não afetar o layout do grid */
-  position: absolute; /* Tira o elemento do fluxo normal */
-  top: 100%; /* Posiciona o topo do elemento na base da plant-card */
-  left: 0;
-  background-color: var(--white); /* Fundo branco para cobrir o conteúdo por baixo */
-  border-radius: 0 0 10px 10px; /* Mantém o arredondamento inferior da card */
-  box-shadow: var(--shadow-medium); /* Adiciona uma sombra para um efeito visual de "pop-out" */
-  z-index: 1; /* Garante que ele apareça sobre outros elementos */
-
-  /* Esconde e desabilita interações por padrão */
-  transform: translateY(0); /* Posição inicial. Será ajustada no :checked */
+  /* Transições para o efeito de aparecer/desaparecer */
   opacity: 0;
-  pointer-events: none; /* Desabilita cliques quando invisível */
+  visibility: hidden; /* Garante que não é clicável ou interage quando escondido */
+  transform: translate(-50%, -50%) scale(0.8); /* Começa menor e invisível */
+  transition: opacity 0.4s ease-out, visibility 0.4s ease-out, transform 0.4s ease-out;
 }
 
-/* Quando o checkbox está marcado, o conteúdo se expande */
+/* Quando o checkbox está marcado, o conteúdo aparece */
 .read-more-toggle:checked ~ .more-info-content {
-  max-height: 1000px; /* Altura alta para acomodar o texto */
-  padding: 15px; /* Adiciona padding quando expandido */
-  /* **AJUSTE AQUI:** O valor de -100% (ou mais/menos) é para o conteúdo deslizar PARA CIMA,
-     cobrindo a parte inferior da card e o botão. Se o texto expandido for muito longo,
-     pode ser necessário aumentar o valor negativo (ex: -110%, -120%) para que ele cubra
-     toda a área necessária. */
-  transform: translateY(-100%); /* Desliza para cima cobrindo o botão e a descrição */
-  opacity: 1; /* Torna visível */
-  pointer-events: auto; /* Reabilita cliques */
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1); /* Volta ao tamanho normal */
 }
 
 .more-info-content p {
   margin: 0;
   padding-bottom: 10px;
+  color: var(--text-color); /* Garante a cor correta do texto interno */
 }
 
 .more-info-content p strong {
   font-weight: bold;
+  color: var(--dark-text-green); /* Negrito com cor de texto mais escura */
 }
+
+/* Opcional: Efeito de "overlay" escuro atrás do modal */
+.read-more-toggle:checked ~ .more-info-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  z-index: 99; /* Abaixo do modal, mas acima do restante do conteúdo */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+}
+.more-info-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+}
+
 
 .footer {
   text-align: center;
-  color: #888;
+  color: var(--white);
   font-size: 0.9em;
   margin-top: 50px;
   padding: 20px;
-  background-color: var(--dark-green);
-  color: var(--white);
+  background-color: var(--primary-green); /* Verde floresta para o rodapé */
   border-radius: 10px 10px 0 0;
+  box-shadow: var(--medium-shadow);
 }
 
 .footer .github-link {
@@ -297,9 +316,8 @@ body {
 }
 
 .footer .github-link a:hover {
-  color: var(--accent-color);
+  color: var(--accent-leaf); /* Verde folha no hover do ícone */
 }
-
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -332,6 +350,12 @@ body {
   .main-nav ul {
     flex-direction: column;
     gap: 10px;
+  }
+
+  /* Ajuste do modal para telas menores */
+  .more-info-content {
+    width: 95%; /* Ocupa mais largura em telas pequenas */
+    padding: 20px;
   }
 }
 
