@@ -1,50 +1,85 @@
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Plantas Que Nos Beneficiam</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="header">Uso De Plantas Como Cosméticos</div>
+  <header class="header">
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#plantas">Plantas</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="header-title">Uso De Plantas Como Cosméticos</div>
+  </header>
 
-  <div class="container">
-    <div class="title">
-      <h1>Plantas</h1>
-      <h2>QUE NOS BENEFICIAM</h2>
-    </div>
+  <main class="container">
+    <section class="hero-section">
+      <div class="title">
+        <h1>Plantas</h1>
+        <h2>QUE NOS BENEFICIAM</h2>
+        <p class="subtitle">Descubra o poder da natureza para a sua beleza e bem-estar.</p>
+      </div>
+    </section>
 
-    <div class="grid">
-      <div>
-        <div class="plant-box"></div>
-        <div class="label"></div>
+    <section id="plantas" class="grid-section">
+      <div class="grid">
+        <article class="plant-card">
+          <figure class="plant-box">
+            <img src="https://via.placeholder.com/150x150?text=Aloe+Vera" alt="Aloe Vera">
+            <figcaption class="label">Aloe Vera</figcaption>
+          </figure>
+          <p class="description">Excelente para hidratação e cicatrização da pele.</p>
+        </article>
+        <article class="plant-card">
+          <figure class="plant-box">
+            <img src="https://via.placeholder.com/150x150?text=Camomila" alt="Camomila">
+            <figcaption class="label">Camomila</figcaption>
+          </figure>
+          <p class="description">Propriedades calmantes e anti-inflamatórias para a pele.</p>
+        </article>
+        <article class="plant-card">
+          <figure class="plant-box">
+            <img src="https://via.placeholder.com/150x150?text=Chá+Verde" alt="Chá Verde">
+            <figcaption class="label">Chá Verde</figcaption>
+          </figure>
+          <p class="description">Rico em antioxidantes, combate o envelhecimento precoce.</p>
+        </article>
+        <article class="plant-card">
+          <figure class="plant-box">
+            <img src="https://via.placeholder.com/150x150?text=Lavanda" alt="Lavanda">
+            <figcaption class="label">Lavanda</figcaption>
+          </figure>
+          <p class="description">Ação relaxante e antisséptica, ideal para produtos de banho.</p>
+        </article>
+        <article class="plant-card">
+          <figure class="plant-box">
+            <img src="https://via.placeholder.com/150x150?text=Hortelã" alt="Hortelã">
+            <figcaption class="label">Hortelã</figcaption>
+          </figure>
+          <p class="description">Refrescante e adstringente, ótima para cuidados com os cabelos.</p>
+        </article>
+        <article class="plant-card">
+          <figure class="plant-box">
+            <img src="https://via.placeholder.com/150x150?text=Rosa" alt="Rosa">
+            <figcaption class="label">Rosa Mosqueta</figcaption>
+          </figure>
+          <p class="description">Óleo de rosa mosqueta para regeneração e hidratação da pele.</p>
+        </article>
       </div>
-      <div>
-        <div class="plant-box"></div>
-        <div class="label"></div>
-      </div>
-      <div>
-        <div class="plant-box"></div>
-        <div class="label"></div>
-      </div>
-      <div>
-        <div class="plant-box"></div>
-        <div class="label"></div>
-      </div>
-      <div>
-        <div class="plant-box"></div>
-        <div class="label"></div>
-      </div>
-      <div>
-        <div class="plant-box"></div>
-        <div class="label"></div>
-      </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <div class="footer">Direitos Autorais Reservados<br>Rodrigo</div>
+  <footer class="footer" id="contato">
+    <p>&copy; 2025 Direitos Autorais Reservados - Rodrigo</p>
+  </footer>
 
 </body>
 </html>
