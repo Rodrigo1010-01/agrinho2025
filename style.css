@@ -125,22 +125,22 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  /* Alinha os itens ao topo para manter a consistência se houver variações de altura */
+  /* Garante que os itens do grid iniciem na mesma linha de base, ajustando-se */
   align-items: start;
 }
 
 .plant-card {
   background-color: var(--white);
   border-radius: 10px;
-  overflow: hidden; /* **IMPORTANTE:** Para que o conteúdo expandido seja cortado se exceder o raio da borda */
+  overflow: hidden; /* **MANTIDO:** Para que o conteúdo expandido seja cortado se exceder o raio da borda */
   box-shadow: var(--soft-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   padding-bottom: 15px; /* Espaço para o botão e para o conteúdo expandido no final */
   display: flex;
   flex-direction: column;
-  position: relative; /* Necessário para o z-index do botão, embora não para o dropdown */
-  min-height: 400px; /* Garante que as cards tenham altura consistente ANTES da expansão */
+  position: relative; /* Necessário para z-index do botão, mas não para o dropdown em si */
+  /* REMOVIDO: min-height para que a card se ajuste à altura do conteúdo expandido */
 }
 
 .plant-card:hover {
@@ -207,7 +207,7 @@ body {
   position: relative;
   min-width: 120px;
   text-align: center;
-  z-index: 1; /* Z-index para o botão */
+  z-index: 1;
 }
 
 .read-more-btn:hover {
@@ -228,30 +228,32 @@ body {
 }
 
 /* -----------------------------------------------------------------------
-   ESTILO PARA A CAIXA QUE ABRE EMBAIXO (DROPDOWN)
+   ESTILO PARA A CAIXA QUE ABRE ABAIXO DO BOTÃO (DROPDOWN)
    -----------------------------------------------------------------------
 */
 .more-info-content {
-  max-height: 0; /* Começa com altura zero */
-  overflow: hidden; /* Esconde o conteúdo */
+  max-height: 0; /* Começa com altura zero, escondido */
+  overflow: hidden; /* Esconde o conteúdo que excede a altura */
   padding: 0 15px; /* Padding inicial zero */
-  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out; /* Transição suave */
+  /* Transição suave para max-height e padding */
+  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out, opacity 0.5s ease-out;
   text-align: left;
   width: 100%;
   box-sizing: border-box;
-  flex-shrink: 0; /* Impede que ele encolha */
-  /* Ajustes para visual da caixa quando aberta */
+  flex-shrink: 0;
+  /* Aparência da caixa quando aberta */
   background-color: var(--light-bg-green); /* Fundo verde claro para a caixa */
-  border-top: 1px solid var(--accent-green); /* Linha divisória */
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
-  margin-top: 10px; /* Espaço entre o botão e o início do conteúdo */
+  border-top: 1px solid var(--accent-green); /* Linha divisória sutil */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03); /* Sombra interna sutil */
+  margin-top: 10px; /* Espaço entre o botão e o início do conteúdo expandido */
+  opacity: 0; /* Começa invisível */
 }
 
-/* Quando o checkbox está marcado, o conteúdo se expande */
+/* Quando o checkbox está marcado, o conteúdo se expande e aparece */
 .read-more-toggle:checked ~ .more-info-content {
   max-height: 1000px; /* Valor alto para acomodar o texto */
   padding: 15px; /* Adiciona padding quando expandido */
-  /* Remove transform e opacity que eram do modal */
+  opacity: 1; /* Torna visível */
 }
 
 .more-info-content p {
