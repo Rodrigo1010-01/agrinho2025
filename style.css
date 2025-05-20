@@ -75,36 +75,45 @@ body {
   z-index: 1;
 }
 
+/* Melhoria no design do cabeçalho principal */
 .hero-section {
   text-align: center;
-  margin-bottom: 50px;
-  padding: 30px 0;
+  margin-bottom: 60px;
+  padding: 40px 0;
+  background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.95));
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .title h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 2.8em;
+  font-size: 3.2em;
   color: var(--dark-green);
   margin: 0;
   text-align: center;
+  line-height: 1.1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .title h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 3.5em;
-  margin: 5px 0 15px;
+  font-size: 4em;
+  margin: 10px 0 20px;
   color: var(--primary-color);
   text-transform: uppercase;
   text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 .subtitle {
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #666;
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+  padding: 0 20px;
 }
 
 .grid-section {
@@ -118,7 +127,7 @@ body {
 }
 
 .plant-card {
-  background-color: var(--white); /* Fundo branco para a card */
+  background-color: var(--white);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow-light);
@@ -152,15 +161,13 @@ body {
   display: block;
 }
 
-/* NOVO: ESTILO PARA O NOME DA PLANTA (H3) ABAIXO DA IMAGEM */
+/* Estilo para o nome da planta (H3) abaixo da imagem */
 .plant-name-label {
-  /* background-color: var(--dark-green); REMOVIDO: background será apenas na plant-card */
-  color: var(--dark-green); /* Cor do texto agora é verde escuro */
+  color: var(--dark-green);
   font-weight: 700;
-  font-size: 1.3em; /* Aumentei um pouco o tamanho */
-  padding: 15px 15px 5px; /* Mais padding em cima, menos embaixo */
-  margin: 0; /* Remove a margem padrão do h3 */
-  /* border-radius: 0 0 10px 10px; REMOVIDO: não precisa mais, o card já tem arredondamento */
+  font-size: 1.3em;
+  padding: 15px 15px 5px;
+  margin: 0;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
@@ -170,7 +177,7 @@ body {
   padding: 0 15px;
   font-size: 0.95em;
   color: #555;
-  margin-bottom: 15px; /* Aumentei a margem inferior para mais espaçamento */
+  margin-bottom: 15px;
   flex-grow: 1;
 }
 
@@ -188,7 +195,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 5px; /* Pequeno espaçamento acima do botão */
+  margin-top: 5px;
   font-size: 0.95em;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -217,7 +224,6 @@ body {
   display: inline;
 }
 
-
 /* Estilo do conteúdo detalhado */
 .more-info-content {
   max-height: 0;
@@ -230,8 +236,8 @@ body {
 
 /* Quando o checkbox está marcado, o conteúdo se expande */
 .read-more-toggle:checked ~ .more-info-content {
-  max-height: 1000px;
-  padding: 15px;
+  max-height: 1000px; /* Um valor bem alto para cobrir qualquer quantidade de texto */
+  padding: 15px; /* Adiciona padding quando expandido */
 }
 
 .more-info-content p {
@@ -255,6 +261,22 @@ body {
   border-radius: 10px 10px 0 0;
 }
 
+/* Estilo para o ícone do GitHub no rodapé */
+.footer .github-link {
+  margin-top: 10px;
+  font-size: 1.8em;
+}
+
+.footer .github-link a {
+  color: var(--white);
+  transition: color 0.3s ease;
+}
+
+.footer .github-link a:hover {
+  color: var(--accent-color);
+}
+
+
 /* Responsividade */
 @media (max-width: 768px) {
   .header-title {
@@ -262,11 +284,16 @@ body {
   }
 
   .title h1 {
-    font-size: 2em;
+    font-size: 2.5em;
   }
 
   .title h2 {
-    font-size: 2.5em;
+    font-size: 3em;
+    letter-spacing: 1px;
+  }
+
+  .subtitle {
+    font-size: 1.1em;
   }
 
   .grid {
@@ -290,11 +317,15 @@ body {
   }
 
   .title h1 {
-    font-size: 1.6em;
+    font-size: 2em;
   }
 
   .title h2 {
-    font-size: 2em;
+    font-size: 2.5em;
+  }
+
+  .subtitle {
+    font-size: 1em;
   }
 
   .grid {
