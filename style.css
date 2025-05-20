@@ -141,9 +141,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px 10px 0 0;
+  /* Removido border-radius 0 0 10px 10px aqui, pois o label não está mais dentro */
+  border-radius: 10px 10px 0 0; /* Mantenha arredondamento superior */
   overflow: hidden;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; Removido, o h3 agora terá sua própria margem */
 }
 
 .plant-box img {
@@ -153,7 +154,8 @@ body {
   display: block;
 }
 
-.label {
+/* REMOVIDO: ESTILOS PARA O ANTIGO .label DENTRO DE .plant-box */
+/* .label {
   background-color: var(--dark-green);
   color: var(--white);
   font-weight: 700;
@@ -164,10 +166,26 @@ body {
   width: 100%;
   box-sizing: border-box;
   display: block;
+} */
+
+/* NOVO: ESTILO PARA O NOME DA PLANTA (H3) ABAIXO DA IMAGEM */
+.plant-name-label {
+  background-color: var(--dark-green); /* Mantém a cor de fundo do label anterior */
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.1em;
+  padding: 10px 15px;
+  margin: 0; /* Remove a margem padrão do h3 */
+  border-radius: 0 0 10px 10px; /* Arredonda só a parte de baixo */
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+  margin-bottom: 15px; /* Espaçamento entre o nome e a descrição */
 }
 
+
 .description {
-  padding: 15px;
+  padding: 0 15px; /* Ajusta o padding para as laterais */
   font-size: 0.95em;
   color: #555;
   margin-bottom: 10px;
@@ -176,13 +194,13 @@ body {
 
 /* Oculta o checkbox real */
 .read-more-toggle {
-  display: none; /* ESCONDE O CHECKBOX */
+  display: none;
 }
 
 /* Estilo do label (que age como botão) */
 .read-more-btn {
   display: inline-block;
-  background-color: var(--red-button); /* Cor vermelha para o botão */
+  background-color: var(--red-button);
   color: var(--white);
   padding: 8px 15px;
   border: none;
@@ -194,7 +212,6 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease;
   align-self: center;
   position: relative;
-  /* overflow: hidden;  Não é necessário se os spans forem absolute ou se o display for none */
   min-width: 120px;
   text-align: center;
 }
@@ -221,23 +238,28 @@ body {
 
 /* Estilo do conteúdo detalhado */
 .more-info-content {
-  max-height: 0; /* Começa fechado */
+  max-height: 0;
   overflow: hidden;
-  padding: 0 15px; /* Padding inicial zero */
-  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out; /* Transição suave */
+  padding: 0 15px;
+  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
   text-align: left;
   margin-top: 10px;
 }
 
 /* Quando o checkbox está marcado, o conteúdo se expande */
 .read-more-toggle:checked ~ .more-info-content {
-  max-height: 1000px; /* Um valor bem alto para cobrir qualquer quantidade de texto */
-  padding: 15px; /* Adiciona padding quando expandido */
+  max-height: 1000px;
+  padding: 15px;
 }
 
 .more-info-content p {
   margin: 0;
-  padding-bottom: 10px; /* Adiciona um pequeno padding no final do parágrafo */
+  padding-bottom: 10px;
+}
+
+/* Garante que o negrito apareça no conteúdo detalhado */
+.more-info-content p strong {
+  font-weight: bold; /* Ou 700 */
 }
 
 .footer {
