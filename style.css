@@ -129,14 +129,17 @@ body {
 .plant-card {
   background-color: var(--white);
   border-radius: 10px;
-  /* Removi o overflow: hidden AQUI, pois o conteúdo expandido pode "sair" */
+  overflow: hidden; /* **IMPORTANTE:** Esconde qualquer conteúdo que saia dos limites */
   box-shadow: var(--shadow-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  padding-bottom: 15px; /* Mantém um padding inferior para o conteúdo visível */
+  padding-bottom: 15px;
   display: flex;
   flex-direction: column;
-  position: relative; /* Essencial para posicionar o more-info-content */
+  position: relative; /* **ESSENCIAL:** Para que o conteúdo absoluto se posicione corretamente */
+
+  /* Define uma altura mínima para manter as cards alinhadas antes da expansão */
+  min-height: 400px; /* **AJUSTE AQUI:** Se o conteúdo inicial de alguma card for muito mais alto/baixo, altere este valor */
 }
 
 .plant-card:hover {
@@ -152,7 +155,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 10px 10px 0 0;
-  overflow: hidden; /* Mantém a imagem dentro dos limites arredondados */
+  overflow: hidden;
 }
 
 .plant-box img {
@@ -162,7 +165,6 @@ body {
   display: block;
 }
 
-/* Estilo para o nome da planta (H3) abaixo da imagem */
 .plant-name-label {
   color: var(--dark-green);
   font-weight: 700;
@@ -178,8 +180,8 @@ body {
   padding: 0 15px;
   font-size: 0.95em;
   color: #555;
-  margin-bottom: 15px; /* Espaçamento entre descrição e botão */
-  flex-grow: 1; /* Faz a descrição ocupar o espaço disponível e empurrar o botão */
+  margin-bottom: 15px;
+  flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
 }
 
 /* Oculta o checkbox real */
@@ -200,11 +202,11 @@ body {
   font-size: 0.95em;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  align-self: center; /* Centraliza o botão horizontalmente dentro da coluna flex */
-  position: relative;
+  align-self: center; /* Centraliza o botão horizontalmente */
+  position: relative; /* Para garantir que o z-index funcione */
   min-width: 120px;
   text-align: center;
-  z-index: 2; /* Garante que o botão fique acima do conteúdo expandido, se necessário */
+  z-index: 3; /* **IMPORTANTE:** Garante que o botão fique acima do conteúdo expandido */
 }
 
 .read-more-btn:hover {
@@ -212,12 +214,10 @@ body {
   transform: translateY(-2px);
 }
 
-/* Esconde o texto "Ver Menos" por padrão */
 .read-more-btn .btn-text-less {
   display: none;
 }
 
-/* Quando o checkbox está marcado: mostra "Ver Menos" e esconde "Ver Mais" */
 .read-more-toggle:checked + .read-more-btn .btn-text-more {
   display: none;
 }
@@ -226,38 +226,44 @@ body {
   display: inline;
 }
 
-/* Estilo do conteúdo detalhado */
+/* Estilo do conteúdo detalhado que se expande */
 .more-info-content {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 15px;
+  max-height: 0; /* Começa com altura zero */
+  overflow: hidden; /* Esconde o conteúdo inicialmente */
+  padding: 0 15px; /* Padding inicial zero */
+  /* Transições suaves para todos os efeitos */
   transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out, transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
   text-align: left;
-  /* margin-top: 10px; Removido pois não será mais usado com position: absolute */
   width: 100%;
   box-sizing: border-box;
-  flex-shrink: 0; /* Impede que ele encolha */
+  flex-shrink: 0;
 
-  /* NOVO: Propriedades para posicionar o conteúdo expandido absolutamente */
-  position: absolute; /* Tira o elemento do fluxo normal do documento */
+  /* **CRÍTICO:** Posicionamento absoluto para não afetar o layout do grid */
+  position: absolute; /* Tira o elemento do fluxo normal */
   top: 100%; /* Posiciona o topo do elemento na base da plant-card */
   left: 0;
-  background-color: var(--white); /* Fundo branco para o conteúdo expandido */
-  border-radius: 0 0 10px 10px; /* Arredonda as bordas inferiores da card */
-  box-shadow: var(--shadow-medium); /* Adiciona uma sombra para destacar a expansão */
+  background-color: var(--white); /* Fundo branco para cobrir o conteúdo por baixo */
+  border-radius: 0 0 10px 10px; /* Mantém o arredondamento inferior da card */
+  box-shadow: var(--shadow-medium); /* Adiciona uma sombra para um efeito visual de "pop-out" */
   z-index: 1; /* Garante que ele apareça sobre outros elementos */
-  transform: translateY(0); /* Começa na posição normal para garantir o alinhamento inicial */
-  opacity: 0; /* Começa invisível */
-  pointer-events: none; /* Impede cliques quando invisível */
+
+  /* Esconde e desabilita interações por padrão */
+  transform: translateY(0); /* Posição inicial. Será ajustada no :checked */
+  opacity: 0;
+  pointer-events: none; /* Desabilita cliques quando invisível */
 }
 
 /* Quando o checkbox está marcado, o conteúdo se expande */
 .read-more-toggle:checked ~ .more-info-content {
-  max-height: 1000px; /* Valor alto para acomodar o conteúdo */
+  max-height: 1000px; /* Altura alta para acomodar o texto */
   padding: 15px; /* Adiciona padding quando expandido */
-  transform: translateY(0); /* Volta à posição normal (topo: 100%) */
-  opacity: 1; /* Fica visível */
-  pointer-events: auto; /* Permite cliques quando visível */
+  /* **AJUSTE AQUI:** O valor de -100% (ou mais/menos) é para o conteúdo deslizar PARA CIMA,
+     cobrindo a parte inferior da card e o botão. Se o texto expandido for muito longo,
+     pode ser necessário aumentar o valor negativo (ex: -110%, -120%) para que ele cubra
+     toda a área necessária. */
+  transform: translateY(-100%); /* Desliza para cima cobrindo o botão e a descrição */
+  opacity: 1; /* Torna visível */
+  pointer-events: auto; /* Reabilita cliques */
 }
 
 .more-info-content p {
@@ -265,9 +271,8 @@ body {
   padding-bottom: 10px;
 }
 
-/* Garante que o negrito apareça no conteúdo detalhado */
 .more-info-content p strong {
-  font-weight: bold; /* Ou 700 */
+  font-weight: bold;
 }
 
 .footer {
@@ -281,7 +286,6 @@ body {
   border-radius: 10px 10px 0 0;
 }
 
-/* Estilo para o ícone do GitHub no rodapé */
 .footer .github-link {
   margin-top: 10px;
   font-size: 1.8em;
@@ -322,4 +326,37 @@ body {
 
   .container {
     margin: 20px auto;
-    padding:
+    padding: 20px;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1.5em;
+  }
+
+  .title h1 {
+    font-size: 2em;
+  }
+
+  .title h2 {
+    font-size: 2.5em;
+  }
+
+  .subtitle {
+    font-size: 1em;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plant-box {
+    height: 150px;
+  }
+}
