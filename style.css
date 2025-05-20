@@ -11,6 +11,8 @@
   --white: #FFFFFF;
   --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08);
   --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.12);
+  --red-button: #F44336; /* Vermelho para o botão "Ver Mais" */
+  --red-button-hover: #D32F2F; /* Vermelho mais escuro para hover */
 }
 
 body {
@@ -122,7 +124,9 @@ body {
   box-shadow: var(--shadow-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  padding-bottom: 15px; /* Adicionado espaço para o botão e texto */
+  padding-bottom: 15px;
+  display: flex; /* Usar flexbox para organizar o conteúdo */
+  flex-direction: column;
 }
 
 .plant-card:hover {
@@ -166,55 +170,49 @@ body {
   padding: 15px;
   font-size: 0.95em;
   color: #555;
-  margin-bottom: 10px; /* Espaço entre a descrição e o botão */
-}
-
-/* Esconder o checkbox real */
-.more-info-toggle {
-  display: none;
+  margin-bottom: 10px;
+  flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
 }
 
 /* Estilo do botão "Ver Mais" */
 .read-more-btn {
   display: inline-block;
-  background-color: var(--primary-color);
+  background-color: var(--red-button); /* Cor vermelha para o botão */
   color: var(--white);
   padding: 8px 15px;
+  border: none; /* Remove a borda padrão do botão */
   border-radius: 5px;
   cursor: pointer;
   margin-top: 5px;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
+  font-size: 0.95em; /* Aumenta um pouco o tamanho da fonte */
+  font-weight: 600; /* Deixa o texto um pouco mais forte */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: center; /* Centraliza o botão dentro da card */
 }
 
 .read-more-btn:hover {
-  background-color: var(--dark-green);
+  background-color: var(--red-button-hover); /* Cor mais escura ao passar o mouse */
+  transform: translateY(-2px); /* Pequeno efeito de elevação */
 }
 
-/* Esconder o conteúdo detalhado por padrão */
-.more-info {
-  max-height: 0; /* Esconde o conteúdo */
+/* Estilo do conteúdo detalhado */
+.more-info-content {
+  max-height: 0; /* Esconde o conteúdo por padrão */
   overflow: hidden;
-  transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Adiciona transição suave */
-  padding: 0 15px; /* Padding zero para o conteúdo escondido */
+  padding: 0 15px; /* Padding inicial zero */
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Transição suave */
+  text-align: left; /* Alinha o texto detalhado à esquerda */
+  margin-top: 10px; /* Espaço entre o botão e o conteúdo expandido */
 }
 
-.more-info p {
-  margin: 15px 0; /* Margem para o parágrafo dentro do more-info */
-  text-align: left; /* Alinhe o texto detalhado à esquerda para melhor leitura */
-}
-
-/* Mostrar o conteúdo detalhado quando o checkbox é marcado */
-.more-info-toggle:checked ~ .read-more-btn {
-    /* Mudar texto ou estilo do botão quando expandido (opcional) */
-    background-color: var(--dark-green);
-}
-
-.more-info-toggle:checked ~ .more-info {
+.more-info-content.expanded {
   max-height: 500px; /* Altura suficiente para mostrar o conteúdo */
   padding: 15px; /* Adiciona padding quando expandido */
 }
 
+.more-info-content p {
+  margin: 0; /* Remove margem padrão do parágrafo dentro do conteúdo expandido */
+}
 
 .footer {
   text-align: center;
