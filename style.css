@@ -176,7 +176,7 @@ body {
 
 /* Oculta o checkbox real */
 .read-more-toggle {
-  display: none;
+  display: none; /* ESCONDE O CHECKBOX */
 }
 
 /* Estilo do label (que age como botão) */
@@ -193,9 +193,9 @@ body {
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
   align-self: center;
-  position: relative; /* Para posicionar os spans de texto */
-  overflow: hidden; /* Esconde o texto que não está ativo */
-  min-width: 120px; /* Garante uma largura mínima para o botão */
+  position: relative;
+  /* overflow: hidden;  Não é necessário se os spans forem absolute ou se o display for none */
+  min-width: 120px;
   text-align: center;
 }
 
@@ -209,7 +209,7 @@ body {
   display: none;
 }
 
-/* Quando o checkbox está marcado, mostra "Ver Menos" e esconde "Ver Mais" */
+/* Quando o checkbox está marcado: mostra "Ver Menos" e esconde "Ver Mais" */
 .read-more-toggle:checked + .read-more-btn .btn-text-more {
   display: none;
 }
@@ -231,7 +231,7 @@ body {
 
 /* Quando o checkbox está marcado, o conteúdo se expande */
 .read-more-toggle:checked ~ .more-info-content {
-  max-height: 1000px; /* Altura suficiente para mostrar o conteúdo */
+  max-height: 1000px; /* Um valor bem alto para cobrir qualquer quantidade de texto */
   padding: 15px; /* Adiciona padding quando expandido */
 }
 
