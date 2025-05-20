@@ -118,7 +118,7 @@ body {
 }
 
 .plant-card {
-  background-color: var(--light-bg);
+  background-color: var(--white); /* Fundo branco para a card */
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow-light);
@@ -141,10 +141,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Removido border-radius 0 0 10px 10px aqui, pois o label não está mais dentro */
-  border-radius: 10px 10px 0 0; /* Mantenha arredondamento superior */
+  border-radius: 10px 10px 0 0;
   overflow: hidden;
-  /* margin-bottom: 10px; Removido, o h3 agora terá sua própria margem */
 }
 
 .plant-box img {
@@ -154,41 +152,25 @@ body {
   display: block;
 }
 
-/* REMOVIDO: ESTILOS PARA O ANTIGO .label DENTRO DE .plant-box */
-/* .label {
-  background-color: var(--dark-green);
-  color: var(--white);
+/* NOVO: ESTILO PARA O NOME DA PLANTA (H3) ABAIXO DA IMAGEM */
+.plant-name-label {
+  /* background-color: var(--dark-green); REMOVIDO: background será apenas na plant-card */
+  color: var(--dark-green); /* Cor do texto agora é verde escuro */
   font-weight: 700;
-  font-size: 1.1em;
-  padding: 10px 15px;
-  border-radius: 0 0 10px 10px;
+  font-size: 1.3em; /* Aumentei um pouco o tamanho */
+  padding: 15px 15px 5px; /* Mais padding em cima, menos embaixo */
+  margin: 0; /* Remove a margem padrão do h3 */
+  /* border-radius: 0 0 10px 10px; REMOVIDO: não precisa mais, o card já tem arredondamento */
   text-align: center;
   width: 100%;
   box-sizing: border-box;
-  display: block;
-} */
-
-/* NOVO: ESTILO PARA O NOME DA PLANTA (H3) ABAIXO DA IMAGEM */
-.plant-name-label {
-  background-color: var(--dark-green); /* Mantém a cor de fundo do label anterior */
-  color: var(--white);
-  font-weight: 700;
-  font-size: 1.1em;
-  padding: 10px 15px;
-  margin: 0; /* Remove a margem padrão do h3 */
-  border-radius: 0 0 10px 10px; /* Arredonda só a parte de baixo */
-  text-align: center;
-  width: 100%;
-  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
-  margin-bottom: 15px; /* Espaçamento entre o nome e a descrição */
 }
 
-
 .description {
-  padding: 0 15px; /* Ajusta o padding para as laterais */
+  padding: 0 15px;
   font-size: 0.95em;
   color: #555;
-  margin-bottom: 10px;
+  margin-bottom: 15px; /* Aumentei a margem inferior para mais espaçamento */
   flex-grow: 1;
 }
 
@@ -206,7 +188,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 5px; /* Pequeno espaçamento acima do botão */
   font-size: 0.95em;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
