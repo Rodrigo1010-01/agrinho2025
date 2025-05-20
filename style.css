@@ -125,7 +125,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   padding-bottom: 15px;
-  display: flex; /* Usar flexbox para organizar o conteúdo */
+  display: flex;
   flex-direction: column;
 }
 
@@ -171,47 +171,73 @@ body {
   font-size: 0.95em;
   color: #555;
   margin-bottom: 10px;
-  flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
+  flex-grow: 1;
 }
 
-/* Estilo do botão "Ver Mais" */
+/* Oculta o checkbox real */
+.read-more-toggle {
+  display: none;
+}
+
+/* Estilo do label (que age como botão) */
 .read-more-btn {
   display: inline-block;
   background-color: var(--red-button); /* Cor vermelha para o botão */
   color: var(--white);
   padding: 8px 15px;
-  border: none; /* Remove a borda padrão do botão */
+  border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 5px;
-  font-size: 0.95em; /* Aumenta um pouco o tamanho da fonte */
-  font-weight: 600; /* Deixa o texto um pouco mais forte */
+  font-size: 0.95em;
+  font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  align-self: center; /* Centraliza o botão dentro da card */
+  align-self: center;
+  position: relative; /* Para posicionar os spans de texto */
+  overflow: hidden; /* Esconde o texto que não está ativo */
+  min-width: 120px; /* Garante uma largura mínima para o botão */
+  text-align: center;
 }
 
 .read-more-btn:hover {
-  background-color: var(--red-button-hover); /* Cor mais escura ao passar o mouse */
-  transform: translateY(-2px); /* Pequeno efeito de elevação */
+  background-color: var(--red-button-hover);
+  transform: translateY(-2px);
 }
+
+/* Esconde o texto "Ver Menos" por padrão */
+.read-more-btn .btn-text-less {
+  display: none;
+}
+
+/* Quando o checkbox está marcado, mostra "Ver Menos" e esconde "Ver Mais" */
+.read-more-toggle:checked + .read-more-btn .btn-text-more {
+  display: none;
+}
+
+.read-more-toggle:checked + .read-more-btn .btn-text-less {
+  display: inline;
+}
+
 
 /* Estilo do conteúdo detalhado */
 .more-info-content {
-  max-height: 0; /* Esconde o conteúdo por padrão */
+  max-height: 0; /* Começa fechado */
   overflow: hidden;
   padding: 0 15px; /* Padding inicial zero */
-  transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Transição suave */
-  text-align: left; /* Alinha o texto detalhado à esquerda */
-  margin-top: 10px; /* Espaço entre o botão e o conteúdo expandido */
+  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out; /* Transição suave */
+  text-align: left;
+  margin-top: 10px;
 }
 
-.more-info-content.expanded {
-  max-height: 500px; /* Altura suficiente para mostrar o conteúdo */
+/* Quando o checkbox está marcado, o conteúdo se expande */
+.read-more-toggle:checked ~ .more-info-content {
+  max-height: 1000px; /* Altura suficiente para mostrar o conteúdo */
   padding: 15px; /* Adiciona padding quando expandido */
 }
 
 .more-info-content p {
-  margin: 0; /* Remove margem padrão do parágrafo dentro do conteúdo expandido */
+  margin: 0;
+  padding-bottom: 10px; /* Adiciona um pequeno padding no final do parágrafo */
 }
 
 .footer {
