@@ -89,6 +89,7 @@
 
         /* Hero Section (Banner de Destaque) */
         .hero {
+            /* URL da imagem de fundo placeholder. Substitua por sua própria imagem! */
             background: linear-gradient(rgba(56, 102, 65, 0.7), rgba(56, 102, 65, 0.7)), url('https://via.placeholder.com/1920x600/386641/FFFFFF?text=Natureza+e+Beleza') no-repeat center center/cover;
             color: var(--light-text-color);
             text-align: center;
@@ -306,73 +307,6 @@
             color: var(--primary-color);
         }
 
-        /* Seção de Contato (Formulário Estático) */
-        .contact {
-            background-color: var(--light-text-color);
-            padding: 60px 20px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 0 15px var(--card-shadow);
-            margin-bottom: 40px;
-        }
-
-        .contact h2 {
-            font-family: 'Merriweather', serif;
-            color: var(--primary-color);
-            font-size: 2.5em;
-            margin-bottom: 30px;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: calc(100% - 20px); /* Ajusta para padding */
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            box-sizing: border-box; /* Inclui padding na largura total */
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-group input[type="submit"] {
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: auto; /* Para não ocupar 100% */
-        }
-
-        .form-group input[type="submit"]:hover {
-            background-color: #e66b6b;
-        }
-
         /* Rodapé */
         .footer {
             background-color: var(--primary-color);
@@ -446,7 +380,7 @@
             .hero h2 {
                 font-size: 2.5em;
             }
-            .about-us h2, .main-content h1, .resources h2, .contact h2 {
+            .about-us h2, .main-content h1, .resources h2 { /* Removido .contact h2 */
                 font-size: 2em;
             }
             .plants-grid, .resources-grid {
@@ -476,14 +410,6 @@
                 height: 30px;
                 font-size: 1em;
             }
-            .form-group input[type="text"],
-            .form-group input[type="email"],
-            .form-group textarea {
-                width: calc(100% - 20px);
-            }
-            .form-group input[type="submit"] {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -500,8 +426,7 @@
                     <li><a href="#about">Sobre Nós</a></li>
                     <li><a href="#plants">Plantas</a></li>
                     <li><a href="#resources">Recursos</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
+                    </ul>
             </nav>
         </div>
     </header>
@@ -523,7 +448,7 @@
 
         <section id="plants" class="main-content container">
             <div class="header">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjkybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9wYXRoPjwvc3ZnPg==" alt="Folha">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjgybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9patc2Zz4=" alt="Folha">
                 Uso De Plantas Como Cosméticos
                 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjkybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9wYXRoPjwvc3ZnPg==" alt="Folha">
             </div>
@@ -606,28 +531,7 @@
             </div>
         </section>
 
-        <section id="contact" class="contact container">
-            <h2>Entre em Contato</h2>
-            <p>Tem alguma dúvida, sugestão ou quer compartilhar sua experiência? Preencha o formulário abaixo!</p>
-            <form class="contact-form" action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Seu Nome:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Seu Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Sua Mensagem:</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Enviar Mensagem">
-                </div>
-            </form>
-        </section>
-    </main>
+        </main>
 
     <footer class="footer">
         <div class="footer-content container">
@@ -638,7 +542,6 @@
                     <li><a href="#about">Sobre Nós</a></li>
                     <li><a href="#plants">Plantas</a></li>
                     <li><a href="#resources">Recursos</a></li>
-                    <li><a href="#contact">Contato</a></li>
                 </ul>
             </div>
             <div class="footer-section">
