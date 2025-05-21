@@ -1,353 +1,352 @@
 /* Importar fontes do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-  /* Paleta de Cores Verdes Aprimorada */
-  --primary-green: #2E7D32; /* Verde floresta profundo */
-  --secondary-green: #4CAF50; /* Verde médio vibrante */
-  --accent-green: #66BB6A; /* Verde folha mais claro para destaques */
-  --dark-text-green: #1B5E20; /* Verde bem escuro para textos principais */
-  --light-bg-green: #F1F8E9; /* Fundo verde super suave */
-  --text-color: #333; /* Cor padrão do texto */
-  --white: #FFFFFF;
-  --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --medium-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  --red-button: #D32F2F; /* Vermelho para o botão de fechar ou destaque */
-  --red-button-hover: #B71C1C;
+    /* Paleta de Cores Verdes Aprimorada com tons mais suaves */
+    --primary-green: #388E3C; /* Um verde floresta ligeiramente mais vibrante */
+    --secondary-green: #66BB6A; /* Verde médio suave */
+    --accent-green: #A5D6A7; /* Verde pastel para detalhes */
+    --dark-text-green: #2E7D32; /* Verde escuro para textos */
+    --light-bg-green: #F8FFF8; /* Fundo super suave, quase branco com um toque de verde */
+    --text-color: #424242; /* Cor padrão do texto, um cinza escuro */
+    --white: #FFFFFF;
+    --soft-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    --medium-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --red-button: #D32F2F;
+    --red-button-hover: #B71C1C;
 }
 
 body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: var(--light-bg-green); /* Fundo geral suave */
-  color: var(--text-color);
-  line-height: 1.6;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--light-bg-green);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupa 100% da altura da viewport */
 }
 
-.header {
-  background-color: var(--primary-green); /* Verde floresta para o cabeçalho */
-  color: var(--white);
-  padding: 15px 0;
-  text-align: center;
-  box-shadow: var(--medium-shadow);
-  position: relative;
-  z-index: 10;
-}
-
-.main-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.main-nav a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1em;
-  padding: 5px 10px;
-  transition: all 0.3s ease;
-}
-
-.main-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-}
-
-.header-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2em;
-  font-weight: 700;
-  margin-top: 15px;
-  text-align: center;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
+/* Centraliza o conteúdo principal */
 .container {
-  max-width: 960px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: var(--white);
-  border-radius: 12px;
-  box-shadow: var(--medium-shadow);
-  position: relative;
-  z-index: 1;
+    max-width: 1000px; /* Aumenta um pouco a largura máxima */
+    margin: 40px auto;
+    padding: 40px; /* Aumenta o padding */
+    background-color: var(--white);
+    border-radius: 15px; /* Bordas mais arredondadas */
+    box-shadow: var(--medium-shadow);
+    position: relative;
+    z-index: 1;
+    flex-grow: 1; /* Permite que o container ocupe o espaço disponível */
 }
 
-.hero-section {
-  text-align: center;
-  margin-bottom: 60px;
-  padding: 40px 0;
-  background: linear-gradient(to right, rgba(241, 248, 233, 0.8), rgba(241, 248, 233, 0.95)); /* Fundo mais claro e suave */
-  border-radius: 8px;
-  box-shadow: var(--soft-shadow);
+/* Header aprimorado */
+.header {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: var(--medium-shadow);
+    position: relative;
+    z-index: 10;
+    display: flex; /* Permite alinhar itens */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600; /* Um pouco mais encorpado */
+    letter-spacing: 0.5px;
 }
 
-.title h1 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 3.2em;
-  color: var(--dark-text-green); /* Verde escuro para o título principal */
-  margin: 0;
-  text-align: center;
-  line-height: 1.1;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+.header img {
+    width: 28px; /* Ícones ligeiramente maiores */
+    height: 28px;
+    vertical-align: middle;
+    margin: 0 8px; /* Espaçamento entre ícone e texto */
 }
 
-.title h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 4em;
-  margin: 10px 0 20px;
-  color: var(--primary-green); /* Verde floresta para o subtítulo grande */
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+/* Título principal */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3.8em; /* Título maior e mais impactante */
+    color: var(--dark-text-green);
+    margin: 40px 0 30px; /* Mais espaço acima e abaixo */
+    text-align: center;
+    line-height: 1.05; /* Linha mais apertada para um look elegante */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
 }
 
-.subtitle {
-  font-size: 1.3em;
-  color: #666;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 0 20px;
-}
-
-.grid-section {
-  margin-top: 40px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  /* Garante que os itens do grid iniciem na mesma linha de base, ajustando-se */
-  align-items: start;
+/* Grid de plantas */
+.plants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cards um pouco maiores */
+    gap: 35px; /* Espaçamento maior entre cards */
+    align-items: stretch; /* Garante que todas as cards tenham a mesma altura */
+    margin-top: 50px;
 }
 
 .plant-card {
-  background-color: var(--white);
-  border-radius: 10px;
-  overflow: hidden; /* **MANTIDO:** Para que o conteúdo expandido seja cortado se exceder o raio da borda */
-  box-shadow: var(--soft-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-  padding-bottom: 15px; /* Espaço para o botão e para o conteúdo expandido no final */
-  display: flex;
-  flex-direction: column;
-  position: relative; /* Necessário para z-index do botão, mas não para o dropdown em si */
-  /* REMOVIDO: min-height para que a card se ajuste à altura do conteúdo expandido */
+    background-color: var(--white);
+    border-radius: 12px; /* Bordas mais suaves */
+    box-shadow: var(--soft-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px; /* Mais espaço na parte inferior */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Garante que o conteúdo expandido fique dentro da borda */
 }
 
 .plant-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--medium-shadow);
+    transform: translateY(-8px); /* Efeito de elevação mais pronunciado */
+    box-shadow: var(--medium-shadow);
 }
 
 .plant-box {
-  position: relative;
-  height: 180px;
-  background-color: var(--secondary-green); /* Verde vibrante para as caixas de imagem */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px 10px 0 0;
-  overflow: hidden;
+    position: relative;
+    height: 200px; /* Altura da imagem um pouco maior */
+    background-color: var(--accent-green); /* Verde pastel para as caixas de imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
 }
 
 .plant-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .plant-name-label {
-  color: var(--dark-text-green);
-  font-weight: 700;
-  font-size: 1.3em;
-  padding: 15px 15px 5px;
-  margin: 0;
-  text-align: center;
-  width: 100%;
-  box-sizing: border-box;
+    color: var(--dark-text-green);
+    font-weight: 700;
+    font-size: 1.5em; /* Nome da planta maior */
+    padding: 20px 15px 10px; /* Mais padding */
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.2;
 }
 
 .description {
-  padding: 0 15px;
-  font-size: 0.95em;
-  color: #555;
-  margin-bottom: 15px; /* Espaçamento entre descrição e botão */
-  flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
-}
-
-/* Oculta o checkbox real */
-.read-more-toggle {
-  display: none;
+    padding: 0 20px; /* Mais padding nas laterais */
+    font-size: 1em; /* Tamanho de fonte padrão */
+    color: var(--text-color);
+    margin-bottom: 20px;
+    flex-grow: 1;
 }
 
 /* Estilo do label (que age como botão) */
 .read-more-btn {
-  display: inline-block;
-  background-color: var(--secondary-green); /* Verde vibrante para o botão */
-  color: var(--white);
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: auto; /* Empurra o botão para o final da card */
-  font-size: 0.95em;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  align-self: center; /* Centraliza o botão horizontalmente */
-  position: relative;
-  min-width: 120px;
-  text-align: center;
-  z-index: 1;
+    display: inline-block;
+    background-color: var(--primary-green); /* Usa o verde primário para o botão */
+    color: var(--white);
+    padding: 10px 20px; /* Mais padding para um botão mais substancial */
+    border: none;
+    border-radius: 7px; /* Mais arredondado */
+    cursor: pointer;
+    margin-top: auto;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center;
+    position: relative;
+    min-width: 140px; /* Largura mínima para o botão */
+    text-align: center;
+    z-index: 1;
+    letter-spacing: 0.5px;
 }
 
 .read-more-btn:hover {
-  background-color: var(--primary-green); /* Escurece no hover */
-  transform: translateY(-2px);
+    background-color: var(--dark-text-green); /* Escurece um pouco mais no hover */
+    transform: translateY(-3px); /* Efeito de elevação no hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil no hover */
+}
+
+/* Oculta o checkbox real */
+.read-more-toggle {
+    display: none;
 }
 
 .read-more-btn .btn-text-less {
-  display: none;
+    display: none;
 }
 
 .read-more-toggle:checked + .read-more-btn .btn-text-more {
-  display: none;
+    display: none;
 }
 
 .read-more-toggle:checked + .read-more-btn .btn-text-less {
-  display: inline;
+    display: inline;
 }
 
-/* -----------------------------------------------------------------------
-   ESTILO PARA A CAIXA QUE ABRE ABAIXO DO BOTÃO (DROPDOWN)
-   -----------------------------------------------------------------------
-*/
+/* Estilo para a caixa que abre abaixo do botão (dropdown) */
 .more-info-content {
-  max-height: 0; /* Começa com altura zero, escondido */
-  overflow: hidden; /* Esconde o conteúdo que excede a altura */
-  padding: 0 15px; /* Padding inicial zero */
-  /* Transição suave para max-height e padding */
-  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out, opacity 0.5s ease-out;
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  /* Aparência da caixa quando aberta */
-  background-color: var(--light-bg-green); /* Fundo verde claro para a caixa */
-  border-top: 1px solid var(--accent-green); /* Linha divisória sutil */
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03); /* Sombra interna sutil */
-  margin-top: 10px; /* Espaço entre o botão e o início do conteúdo expandido */
-  opacity: 0; /* Começa invisível */
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px; /* Padding inicial zero, ajustado */
+    transition: max-height 0.8s ease-in-out, padding 0.8s ease-in-out, opacity 0.6s ease-out; /* Transições mais suaves */
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background-color: var(--light-bg-green);
+    border-top: 1px solid var(--accent-green);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02); /* Sombra interna mais suave */
+    margin-top: 15px; /* Mais espaço entre o botão e o conteúdo expandido */
+    opacity: 0;
+    border-radius: 0 0 12px 12px; /* Arredonda apenas as bordas inferiores da caixa expandida */
 }
 
 /* Quando o checkbox está marcado, o conteúdo se expande e aparece */
 .read-more-toggle:checked ~ .more-info-content {
-  max-height: 1000px; /* Valor alto para acomodar o texto */
-  padding: 15px; /* Adiciona padding quando expandido */
-  opacity: 1; /* Torna visível */
+    max-height: 1200px; /* Valor alto para acomodar mais texto */
+    padding: 20px; /* Mais padding quando expandido */
+    opacity: 1;
 }
 
 .more-info-content p {
-  margin: 0;
-  padding-bottom: 10px;
-  color: var(--text-color);
+    margin: 0;
+    padding-bottom: 12px; /* Mais espaço entre parágrafos */
+    color: var(--text-color);
+    font-size: 0.95em;
 }
 
 .more-info-content p strong {
-  font-weight: bold;
-  color: var(--dark-text-green);
+    font-weight: 700; /* Bold mais pronunciado */
+    color: var(--dark-text-green);
 }
 
+/* Footer aprimorado */
 .footer {
-  text-align: center;
-  color: var(--white);
-  font-size: 0.9em;
-  margin-top: 50px;
-  padding: 20px;
-  background-color: var(--primary-green); /* Verde floresta para o rodapé */
-  border-radius: 10px 10px 0 0;
-  box-shadow: var(--medium-shadow);
+    text-align: center;
+    color: var(--white);
+    font-size: 0.95em; /* Um pouco maior */
+    margin-top: 60px; /* Mais espaço acima */
+    padding: 25px; /* Mais padding */
+    background-color: var(--primary-green);
+    border-radius: 12px 12px 0 0; /* Mais arredondado */
+    box-shadow: var(--medium-shadow);
 }
 
 .footer .github-link {
-  margin-top: 10px;
-  font-size: 1.8em;
+    margin-top: 15px; /* Mais espaço */
+    font-size: 2em; /* Ícone GitHub maior */
 }
 
 .footer .github-link a {
-  color: var(--white);
-  transition: color 0.3s ease;
+    color: var(--white);
+    transition: color 0.3s ease;
 }
 
 .footer .github-link a:hover {
-  color: var(--accent-green); /* Verde no hover do ícone */
+    color: var(--accent-green);
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .header-title {
-    font-size: 1.8em;
-  }
+    .container {
+        margin: 20px auto;
+        padding: 30px;
+    }
 
-  .title h1 {
-    font-size: 2.5em;
-  }
+    h1 {
+        font-size: 3em;
+        margin: 30px 0 25px;
+    }
 
-  .title h2 {
-    font-size: 3em;
-    letter-spacing: 1px;
-  }
+    .plants-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
 
-  .subtitle {
-    font-size: 1.1em;
-  }
+    .plant-card {
+        padding-bottom: 15px;
+    }
 
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+    .plant-name-label {
+        font-size: 1.3em;
+        padding: 15px 15px 8px;
+    }
 
-  .container {
-    margin: 20px auto;
-    padding: 20px;
-  }
+    .description {
+        padding: 0 15px;
+        margin-bottom: 15px;
+    }
 
-  .main-nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
+    .read-more-btn {
+        padding: 9px 18px;
+        font-size: 0.95em;
+    }
+
+    .more-info-content {
+        padding: 0 15px;
+        margin-top: 10px;
+    }
+
+    .read-more-toggle:checked ~ .more-info-content {
+        padding: 15px;
+    }
 }
 
 @media (max-width: 480px) {
-  .header-title {
-    font-size: 1.5em;
-  }
+    .container {
+        margin: 15px auto;
+        padding: 20px;
+    }
 
-  .title h1 {
-    font-size: 2em;
-  }
+    .header {
+        font-size: 1em;
+        padding: 12px 0;
+    }
 
-  .title h2 {
-    font-size: 2.5em;
-  }
+    .header img {
+        width: 24px;
+        height: 24px;
+        margin: 0 5px;
+    }
 
-  .subtitle {
-    font-size: 1em;
-  }
+    h1 {
+        font-size: 2.5em;
+        margin: 20px 0;
+    }
 
-  .grid {
-    grid-template-columns: 1fr;
-  }
+    .plants-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-  .plant-box {
-    height: 150px;
-  }
+    .plant-box {
+        height: 180px;
+    }
+
+    .plant-name-label {
+        font-size: 1.2em;
+        padding: 12px;
+    }
+
+    .read-more-btn {
+        min-width: 110px;
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .more-info-content {
+        padding: 0 10px;
+    }
+
+    .read-more-toggle:checked ~ .more-info-content {
+        padding: 10px;
+    }
+
+    .footer {
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 0.85em;
+    }
 }
