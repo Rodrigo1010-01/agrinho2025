@@ -39,6 +39,9 @@
             background-color: var(--primary-color);
             padding: 15px 0;
             box-shadow: 0 2px 5px var(--card-shadow);
+            position: sticky; /* Fixa a barra de navegação no topo */
+            top: 0;
+            z-index: 1000; /* Garante que fique acima de outros elementos */
         }
 
         .navbar-content {
@@ -188,61 +191,75 @@
 
         .plants-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Aumentado um pouco */
-            gap: 25px; /* Aumentado o gap */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-bottom: 30px;
         }
 
         .plant-card {
             background-color: var(--light-green);
-            border-radius: 10px; /* Borda mais arredondada */
-            padding: 20px; /* Aumentado o padding */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 200px; /* Altura mínima maior */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de hover */
+            justify-content: flex-start; /* Alinha o conteúdo ao topo */
+            min-height: 250px; /* Aumentar altura para a descrição */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative; /* Para posicionar o texto da descrição */
+            overflow: hidden; /* Esconde o conteúdo que transborda */
         }
 
         .plant-card:hover {
-            transform: translateY(-5px); /* Levanta o card no hover */
+            transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .plant-card-image {
             background-color: var(--medium-green);
             width: 100%;
-            height: 150px; /* Altura maior para a imagem */
-            border-radius: 8px; /* Borda da imagem mais arredondada */
+            height: 150px;
+            border-radius: 8px;
             margin-bottom: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.8em; /* Tamanho maior para o ícone/texto placeholder */
+            font-size: 1.8em;
             color: var(--primary-color);
             overflow: hidden; /* Garante que a imagem não transborde */
         }
 
+        /* Estilo para imagens reais nos cards, se você as adicionar */
         .plant-card-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-            display: block; /* Remove espaço extra abaixo da imagem */
+            object-fit: cover;
+            display: block;
         }
 
-        .plant-card-text {
-            background-color: var(--medium-green);
-            width: 90%; /* Mais largo */
-            height: 40px; /* Mais alto */
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .plant-card h3 { /* Novo estilo para o nome da planta */
             color: var(--primary-color);
-            font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .plant-description { /* Estilo para a descrição da planta */
+            font-size: 0.9em;
+            color: var(--text-color);
+            text-align: center;
+            height: 0; /* Começa com altura 0 */
+            opacity: 0; /* Começa invisível */
+            overflow: hidden;
+            transition: height 0.4s ease-out, opacity 0.4s ease-out; /* Transição para aparecer */
+        }
+
+        .plant-card:hover .plant-description {
+            height: auto; /* Altura automática para revelar o texto */
+            opacity: 1; /* Torna visível */
+            margin-top: 5px; /* Pequeno espaçamento */
         }
 
         /* Seção de Recursos Adicionais */
@@ -274,6 +291,10 @@
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             text-align: left;
+            min-height: 200px; /* Garante altura mínima para alinhamento */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Empurra o link para baixo */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -292,20 +313,22 @@
         .resource-card p {
             font-size: 0.95em;
             color: var(--text-color);
+            flex-grow: 1; /* Faz o parágrafo crescer e empurrar o "Leia Mais" */
         }
 
-        .resource-card a {
+        /* Estilo para o "Leia Mais" como texto, não link clicável */
+        .resource-card .read-more-text {
             display: inline-block;
             color: var(--secondary-color);
-            text-decoration: none;
             font-weight: 600;
             margin-top: 10px;
-            transition: color 0.3s ease;
+            cursor: default; /* Remove o cursor de link */
+            /* Se quiser simular um clique, pode adicionar um hover visual aqui: */
+            /* text-decoration: underline; */
+            /* transition: color 0.3s ease; */
         }
+        /* .resource-card .read-more-text:hover { color: var(--primary-color); } */ /* Opcional */
 
-        .resource-card a:hover {
-            color: var(--primary-color);
-        }
 
         /* Rodapé */
         .footer {
@@ -380,7 +403,7 @@
             .hero h2 {
                 font-size: 2.5em;
             }
-            .about-us h2, .main-content h1, .resources h2 { /* Removido .contact h2 */
+            .about-us h2, .main-content h1, .resources h2 {
                 font-size: 2em;
             }
             .plants-grid, .resources-grid {
@@ -406,17 +429,13 @@
                 font-size: 0.9em;
                 padding: 10px 15px;
             }
-            .plant-card-text {
-                height: 30px;
-                font-size: 1em;
-            }
         }
     </style>
 </head>
 <body>
     <header class="navbar">
         <div class="navbar-content container">
-            <a href="#" class="navbar-brand">
+            <a href="#home" class="navbar-brand">
                 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjkybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9wYXRoPjwvc3ZnPg==" alt="Logo de Folha">
                 Plantas & Beleza
             </a>
@@ -426,7 +445,7 @@
                     <li><a href="#about">Sobre Nós</a></li>
                     <li><a href="#plants">Plantas</a></li>
                     <li><a href="#resources">Recursos</a></li>
-                    </ul>
+                </ul>
             </nav>
         </div>
     </header>
@@ -448,7 +467,7 @@
 
         <section id="plants" class="main-content container">
             <div class="header">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjgybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9patc2Zz4=" alt="Folha">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjkybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9wYXRoPjwvc3ZnPg==" alt="Folha">
                 Uso De Plantas Como Cosméticos
                 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjkybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9wYXRoPjwvc3ZnPg==" alt="Folha">
             </div>
@@ -456,51 +475,83 @@
             <div class="plants-grid">
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Aloe+Vera" alt="Aloe Vera">
+                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Aloe Vera</text>
+                        </svg>
                     </div>
-                    <div class="plant-card-text">Aloe Vera</div>
+                    <h3>Aloe Vera</h3>
+                    <p class="plant-description">Conhecida por suas propriedades calmantes e hidratantes, ideal para peles sensíveis e queimaduras solares. Rica em vitaminas e minerais.</p>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Camomila" alt="Camomila">
+                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Camomila</text>
+                        </svg>
                     </div>
-                    <div class="plant-card-text">Camomila</div>
+                    <h3>Camomila</h3>
+                    <p class="plant-description">Possui efeito anti-inflamatório e clareador. Perfeita para suavizar a pele, reduzir vermelhidão e acalmar irritações.</p>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Rosa+Mosqueta" alt="Rosa Mosqueta">
+                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Rosa Mosqueta</text>
+                        </svg>
                     </div>
-                    <div class="plant-card-text">Rosa Mosqueta</div>
+                    <h3>Rosa Mosqueta</h3>
+                    <p class="plant-description">Reconhecida por suas propriedades regeneradoras e cicatrizantes. Auxilia na redução de manchas, rugas e linhas de expressão.</p>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Ch%C3%A1+Verde" alt="Chá Verde">
+                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Chá Verde</text>
+                        </svg>
                     </div>
-                    <div class="plant-card-text">Chá Verde</div>
+                    <h3>Chá Verde</h3>
+                    <p class="plant-description">Poderoso antioxidante, combate os radicais livres e previne o envelhecimento precoce. Ótimo para tonificar a pele.</p>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Lavanda" alt="Lavanda">
+                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Lavanda</text>
+                        </svg>
                     </div>
-                    <div class="plant-card-text">Lavanda</div>
+                    <h3>Lavanda</h3>
+                    <p class="plant-description">Com aroma relaxante e propriedades antissépticas. Ajuda a acalmar a pele, aliviar picadas e promover um sono tranquilo.</p>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=%C3%93leo+de+Coco" alt="Óleo de Coco">
+                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Óleo de Coco</text>
+                        </svg>
                     </div>
-                    <div class="plant-card-text">Óleo de Coco</div>
+                    <h3>Óleo de Coco</h3>
+                    <p class="plant-description">Excelente hidratante natural para pele e cabelo. Possui propriedades antimicrobianas e nutre profundamente.</p>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Calendula" alt="Calêndula">
+                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Calêndula</text>
+                        </svg>
                     </div>
-                    <div class="plant-card-text">Calêndula</div>
+                    <h3>Calêndula</h3>
+                    <p class="plant-description">Com ação cicatrizante e anti-inflamatória, é ótima para peles sensíveis, irritadas e para tratar pequenas lesões.</p>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Alecrim" alt="Alecrim">
+                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Alecrim</text>
+                        </svg>
                     </div>
-                    <div class="plant-card-text">Alecrim</div>
+                    <h3>Alecrim</h3>
+                    <p class="plant-description">Estimula a circulação, é um ótimo tônico capilar e tem propriedades antissépticas, ideal para pele e cabelo oleosos.</p>
                 </div>
             </div>
         </section>
@@ -511,27 +562,23 @@
                 <div class="resource-card">
                     <h3>Guia de Extratos Naturais</h3>
                     <p>Descubra como extrair e utilizar os benefícios das plantas para cosméticos caseiros e tratamentos de pele e cabelo.</p>
-                    <a href="#">Leia Mais &rarr;</a>
-                </div>
+                    <span class="read-more-text">Leia Mais &rarr;</span> </div>
                 <div class="resource-card">
                     <h3>Receitas de Beleza DIY</h3>
                     <p>Aprenda a fazer suas próprias máscaras faciais, cremes e loções com ingredientes 100% naturais e orgânicos.</p>
-                    <a href="#">Leia Mais &rarr;</a>
-                </div>
+                    <span class="read-more-text">Leia Mais &rarr;</span> </div>
                 <div class="resource-card">
                     <h3>Benefícios de Óleos Essenciais</h3>
                     <p>Explore o mundo dos óleos essenciais e suas propriedades terapêuticas e estéticas. Guia completo para iniciantes.</p>
-                    <a href="#">Leia Mais &rarr;</a>
-                </div>
+                    <span class="read-more-text">Leia Mais &rarr;</span> </div>
                 <div class="resource-card">
                     <h3>Sustentabilidade e Cosmética</h3>
                     <p>Entenda a importância de escolher produtos sustentáveis e como suas escolhas impactam o meio ambiente.</p>
-                    <a href="#">Leia Mais &rarr;</a>
-                </div>
+                    <span class="read-more-text">Leia Mais &rarr;</span> </div>
             </div>
         </section>
 
-        </main>
+    </main>
 
     <footer class="footer">
         <div class="footer-content container">
