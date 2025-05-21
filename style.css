@@ -2,496 +2,352 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-    /* Paleta de Cores Verdes Aprimorada (do seu outro site) */
-    --primary-green: #2E7D32; /* Verde floresta profundo */
-    --secondary-green: #4CAF50; /* Verde médio vibrante */
-    --accent-green: #66BB6A; /* Verde folha mais claro para destaques */
-    --dark-text-green: #1B5E20; /* Verde bem escuro para textos principais */
-    --light-bg-green: #F1F8E9; /* Fundo verde super suave */
-    --text-color: #333; /* Cor padrão do texto */
-    --white: #FFFFFF;
-    --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --medium-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    --red-button: #D32F2F; /* Vermelho para o botão de fechar ou destaque */
-    --red-button-hover: #B71C1C;
+  /* Paleta de Cores Verdes Aprimorada */
+  --primary-green: #2E7D32; /* Verde floresta profundo */
+  --secondary-green: #4CAF50; /* Verde médio vibrante */
+  --accent-green: #66BB6A; /* Verde folha mais claro para destaques */
+  --dark-text-green: #1B5E20; /* Verde bem escuro para textos principais */
+  --light-bg-green: #F1F8E9; /* Fundo verde super suave */
+  --text-color: #333; /* Cor padrão do texto */
+  --white: #FFFFFF;
+  --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --medium-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  --red-button: #D32F2F; /* Vermelho para o botão de fechar ou destaque */
+  --red-button-hover: #B71C1C;
 }
 
 body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--light-bg-green); /* Fundo geral suave */
-    color: var(--text-color);
-    line-height: 1.6;
-    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light-bg-green); /* Fundo geral suave */
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-/* Base de títulos */
-h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif; /* Usando Playfair Display para títulos */
-    color: var(--dark-text-green);
-    margin-top: 0;
-    font-weight: 700;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Header Geral (agora como no seu outro site) */
 .header {
-    background-color: var(--primary-green); /* Verde floresta para o cabeçalho */
-    color: var(--white);
-    padding: 15px 0;
-    text-align: center;
-    box-shadow: var(--medium-shadow);
-    position: sticky; /* Sticky para a navegação */
-    top: 0;
-    z-index: 1000; /* Z-index alto para ficar por cima */
+  background-color: var(--primary-green); /* Verde floresta para o cabeçalho */
+  color: var(--white);
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: var(--medium-shadow);
+  position: relative;
+  z-index: 10;
 }
 
 .main-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap; /* Para responsividade da navegação */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 .main-nav a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1em;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1em;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
 }
 
 .main-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
 }
 
 .header-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2em;
-    font-weight: 700;
-    margin-top: 15px;
-    text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    color: var(--white); /* Garante que o título do header seja branco */
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-top: 15px;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Container principal para o conteúdo das seções */
 .container {
-    max-width: 1080px; /* Aumentei um pouco para ter mais espaço */
-    margin: 40px auto;
-    padding: 30px;
-    background-color: var(--white);
-    border-radius: 12px;
-    box-shadow: var(--medium-shadow);
-    position: relative;
-    z-index: 1;
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--medium-shadow);
+  position: relative;
+  z-index: 1;
 }
 
-/* Hero Section (como no seu outro site) */
 .hero-section {
-    text-align: center;
-    margin-bottom: 60px;
-    padding: 40px 0;
-    background: linear-gradient(to right, rgba(241, 248, 233, 0.8), rgba(241, 248, 233, 0.95)); /* Fundo mais claro e suave */
-    border-radius: 8px;
-    box-shadow: var(--soft-shadow);
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 40px 0;
+  background: linear-gradient(to right, rgba(241, 248, 233, 0.8), rgba(241, 248, 233, 0.95)); /* Fundo mais claro e suave */
+  border-radius: 8px;
+  box-shadow: var(--soft-shadow);
 }
 
 .title h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 3.2em;
-    color: var(--dark-text-green); /* Verde escuro para o título principal */
-    margin: 0;
-    text-align: center;
-    line-height: 1.1;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 3.2em;
+  color: var(--dark-text-green); /* Verde escuro para o título principal */
+  margin: 0;
+  text-align: center;
+  line-height: 1.1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .title h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4em; /* Mantido o tamanho grande para o destaque */
-    margin: 10px 0 20px;
-    color: var(--primary-green); /* Verde floresta para o subtítulo grande */
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  font-family: 'Playfair Display', serif;
+  font-size: 4em;
+  margin: 10px 0 20px;
+  color: var(--primary-green); /* Verde floresta para o subtítulo grande */
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 .subtitle {
-    font-size: 1.3em;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 20px;
+  font-size: 1.3em;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
 }
 
-/* Seções de Conteúdo (Geral) */
-.content-section {
-    padding: 40px 0;
-    text-align: center; /* Centraliza títulos e wrappers */
+.grid-section {
+  margin-top: 40px;
 }
 
-.content-section h2 {
-    font-size: 2.5em; /* Título maior para seções */
-    margin-bottom: 30px;
-    color: var(--primary-green);
-}
-
-/* Wrapper para texto e imagem */
-.content-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 40px; /* Espaçamento entre os elementos */
-    margin-top: 30px;
-}
-
-.text-block {
-    flex: 2; /* Permite que o bloco de texto seja maior */
-    min-width: 350px; /* Largura mínima para o texto */
-    max-width: 600px; /* Largura máxima para o texto */
-    text-align: left; /* Alinha o texto à esquerda dentro do bloco */
-    background-color: var(--white); /* Fundo branco para o bloco de texto */
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: var(--soft-shadow);
-}
-
-.text-block p {
-    font-size: 1.1em;
-    color: var(--text-color);
-}
-
-/* Placeholders de Imagem para seções */
-.image-placeholder {
-    flex: 1; /* Permite que o placeholder ocupe o espaço restante */
-    min-width: 250px;
-    height: 200px;
-    background-color: #d8e6d8; /* Verde claro para o fundo */
-    border: 2px solid var(--accent-green); /* Borda sólida */
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Garante que a imagem não vaze */
-    position: relative; /* Para img absolute */
-}
-
-.image-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cobre a área sem distorcer, cortando se necessário */
-    display: block;
-    border-radius: 10px; /* Herda o border-radius do pai */
-}
-
-
-/* Grid para os cards de benefícios (plant-card do seu outro site) */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado o minmax */
-    gap: 30px;
-    justify-content: center; /* Centraliza o grid se houver espaço */
-    align-items: stretch; /* Garante que os cards tenham a mesma altura */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  /* Garante que os itens do grid iniciem na mesma linha de base, ajustando-se */
+  align-items: start;
 }
 
 .plant-card {
-    background-color: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--soft-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden; /* **MANTIDO:** Para que o conteúdo expandido seja cortado se exceder o raio da borda */
+  box-shadow: var(--soft-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  padding-bottom: 15px; /* Espaço para o botão e para o conteúdo expandido no final */
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Necessário para z-index do botão, mas não para o dropdown em si */
+  /* REMOVIDO: min-height para que a card se ajuste à altura do conteúdo expandido */
 }
 
 .plant-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--medium-shadow);
+  transform: translateY(-5px);
+  box-shadow: var(--medium-shadow);
 }
 
-/* As "plant-box" agora são os containers das imagens dos cards */
 .plant-box {
-    height: 160px; /* Altura do espaço para a imagem */
-    background-color: var(--secondary-green); /* Fundo caso a imagem não carregue */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px 10px 0 0;
-    overflow: hidden; /* Garante que a imagem se ajuste ao border-radius */
-    position: relative;
+  position: relative;
+  height: 180px;
+  background-color: var(--secondary-green); /* Verde vibrante para as caixas de imagem */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
 }
 
 .plant-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cobre a área sem distorcer, cortando se necessário */
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* Nome da planta/benefício */
 .plant-name-label {
-    font-family: 'Montserrat', sans-serif; /* Montserrat para nomes */
-    color: var(--dark-text-green);
-    font-weight: 700;
-    font-size: 1.3em;
-    padding: 15px 15px 5px;
-    margin: 0;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
+  color: var(--dark-text-green);
+  font-weight: 700;
+  font-size: 1.3em;
+  padding: 15px 15px 5px;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .description {
-    font-family: 'Montserrat', sans-serif;
-    padding: 0 15px;
-    font-size: 0.95em;
-    color: #555;
-    margin-bottom: 15px;
-    flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
+  padding: 0 15px;
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 15px; /* Espaçamento entre descrição e botão */
+  flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
 }
 
 /* Oculta o checkbox real */
 .read-more-toggle {
-    display: none;
+  display: none;
 }
 
-/* Estilo do label (que age como botão) - EXATAMENTE IGUAL ao seu site */
+/* Estilo do label (que age como botão) */
 .read-more-btn {
-    display: inline-block;
-    background-color: var(--secondary-green); /* Verde vibrante para o botão */
-    color: var(--white);
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: auto; /* Empurra o botão para o final da card */
-    font-size: 0.95em;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    align-self: center; /* Centraliza o botão horizontalmente */
-    position: relative;
-    min-width: 120px;
-    text-align: center;
-    z-index: 1;
-    /* Adicionado para o texto "Ver Mais/Menos" */
-    line-height: 1; /* Garante que o texto não tenha altura extra */
+  display: inline-block;
+  background-color: var(--secondary-green); /* Verde vibrante para o botão */
+  color: var(--white);
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: auto; /* Empurra o botão para o final da card */
+  font-size: 0.95em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: center; /* Centraliza o botão horizontalmente */
+  position: relative;
+  min-width: 120px;
+  text-align: center;
+  z-index: 1;
 }
 
 .read-more-btn:hover {
-    background-color: var(--primary-green); /* Escurece no hover */
-    transform: translateY(-2px);
+  background-color: var(--primary-green); /* Escurece no hover */
+  transform: translateY(-2px);
 }
 
 .read-more-btn .btn-text-less {
-    display: none;
+  display: none;
 }
 
 .read-more-toggle:checked + .read-more-btn .btn-text-more {
-    display: none;
+  display: none;
 }
 
 .read-more-toggle:checked + .read-more-btn .btn-text-less {
-    display: inline;
+  display: inline;
 }
 
-/* Estilo para a caixa que abre abaixo do botão (dropdown) - EXATAMENTE IGUAL ao seu site */
+/* -----------------------------------------------------------------------
+   ESTILO PARA A CAIXA QUE ABRE ABAIXO DO BOTÃO (DROPDOWN)
+   -----------------------------------------------------------------------
+*/
 .more-info-content {
-    max-height: 0; /* Começa com altura zero, escondido */
-    overflow: hidden; /* Esconde o conteúdo que excede a altura */
-    padding: 0 15px; /* Padding inicial zero */
-    transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out, opacity 0.5s ease-out;
-    text-align: left;
-    width: 100%;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    background-color: var(--light-bg-green); /* Fundo verde claro para a caixa */
-    border-top: 1px solid var(--accent-green); /* Linha divisória sutil */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03); /* Sombra interna sutil */
-    margin-top: 10px; /* Espaço entre o botão e o início do conteúdo expandido */
-    opacity: 0; /* Começa invisível */
+  max-height: 0; /* Começa com altura zero, escondido */
+  overflow: hidden; /* Esconde o conteúdo que excede a altura */
+  padding: 0 15px; /* Padding inicial zero */
+  /* Transição suave para max-height e padding */
+  transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out, opacity 0.5s ease-out;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  /* Aparência da caixa quando aberta */
+  background-color: var(--light-bg-green); /* Fundo verde claro para a caixa */
+  border-top: 1px solid var(--accent-green); /* Linha divisória sutil */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03); /* Sombra interna sutil */
+  margin-top: 10px; /* Espaço entre o botão e o início do conteúdo expandido */
+  opacity: 0; /* Começa invisível */
 }
 
 /* Quando o checkbox está marcado, o conteúdo se expande e aparece */
 .read-more-toggle:checked ~ .more-info-content {
-    max-height: 1000px; /* Valor alto para acomodar o texto */
-    padding: 15px; /* Adiciona padding quando expandido */
-    opacity: 1; /* Torna visível */
+  max-height: 1000px; /* Valor alto para acomodar o texto */
+  padding: 15px; /* Adiciona padding quando expandido */
+  opacity: 1; /* Torna visível */
 }
 
 .more-info-content p {
-    margin: 0;
-    padding-bottom: 10px;
-    color: var(--text-color);
+  margin: 0;
+  padding-bottom: 10px;
+  color: var(--text-color);
 }
 
 .more-info-content p strong {
-    font-weight: bold;
-    color: var(--dark-text-green);
+  font-weight: bold;
+  color: var(--dark-text-green);
 }
 
-/* Footer (como no seu outro site) */
 .footer {
-    text-align: center;
-    color: var(--white);
-    font-size: 0.9em;
-    margin-top: 50px;
-    padding: 20px;
-    background-color: var(--primary-green); /* Verde floresta para o rodapé */
-    border-radius: 10px 10px 0 0;
-    box-shadow: var(--medium-shadow);
+  text-align: center;
+  color: var(--white);
+  font-size: 0.9em;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: var(--primary-green); /* Verde floresta para o rodapé */
+  border-radius: 10px 10px 0 0;
+  box-shadow: var(--medium-shadow);
 }
 
 .footer .github-link {
-    margin-top: 10px;
-    font-size: 1.8em;
+  margin-top: 10px;
+  font-size: 1.8em;
 }
 
 .footer .github-link a {
-    color: var(--white);
-    transition: color 0.3s ease;
+  color: var(--white);
+  transition: color 0.3s ease;
 }
 
 .footer .github-link a:hover {
-    color: var(--accent-green); /* Verde no hover do ícone */
+  color: var(--accent-green); /* Verde no hover do ícone */
 }
 
 /* Responsividade */
-@media (max-width: 1024px) {
-    .container {
-        padding: 25px;
-        margin: 30px auto;
-    }
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 25px;
-    }
-    .plant-card {
-        padding-bottom: 10px;
-    }
-    .plant-box {
-        height: 140px;
-    }
-    .content-wrapper {
-        gap: 30px;
-    }
-    .text-block {
-        min-width: 300px;
-        padding: 20px;
-    }
-    .image-placeholder {
-        min-width: 200px;
-        height: 160px;
-    }
-}
-
-
 @media (max-width: 768px) {
-    .header-title {
-        font-size: 1.8em;
-    }
-    .main-nav ul {
-        flex-direction: column;
-        gap: 8px;
-    }
-    .main-nav a {
-        padding: 8px 10px;
-        font-size: 1em;
-    }
-    .title h1 {
-        font-size: 2.5em;
-    }
-    .title h2 {
-        font-size: 3em;
-        letter-spacing: 1px;
-    }
-    .subtitle {
-        font-size: 1.1em;
-    }
-    .container {
-        margin: 20px auto;
-        padding: 20px;
-    }
-    .content-section h2 {
-        font-size: 2em;
-    }
-    .content-wrapper {
-        flex-direction: column; /* Pilha os blocos de texto e imagem */
-        gap: 20px;
-    }
-    .text-block {
-        min-width: unset; /* Remove a largura mínima para telas menores */
-        max-width: 100%;
-        text-align: center; /* Centraliza o texto em telas menores */
-    }
-    .image-placeholder {
-        width: 100%; /* Ocupa a largura total disponível */
-        max-width: 250px; /* Limita a largura em telas muito pequenas */
-        height: 150px;
-    }
-    .grid {
-        grid-template-columns: 1fr; /* Um card por linha em telas muito pequenas */
-        gap: 20px;
-    }
-    .plant-card {
-        width: 100%; /* Ocupa a largura total disponível */
-        max-width: 300px; /* Limita em telas maiores */
-        margin: 0 auto; /* Centraliza o card individualmente */
-    }
-    .plant-box {
-        height: 120px;
-    }
-    .plant-name-label {
-        font-size: 1.2em;
-    }
-    .description {
-        font-size: 0.9em;
-    }
-    .read-more-btn {
-        font-size: 0.9em;
-        padding: 7px 12px;
-    }
+  .header-title {
+    font-size: 1.8em;
+  }
+
+  .title h1 {
+    font-size: 2.5em;
+  }
+
+  .title h2 {
+    font-size: 3em;
+    letter-spacing: 1px;
+  }
+
+  .subtitle {
+    font-size: 1.1em;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .container {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 @media (max-width: 480px) {
-    .header-title {
-        font-size: 1.5em;
-    }
-    .title h1 {
-        font-size: 2em;
-    }
-    .title h2 {
-        font-size: 2.5em;
-    }
-    .subtitle {
-        font-size: 1em;
-    }
-    .container {
-        padding: 15px;
-    }
-    .content-section h2 {
-        font-size: 1.8em;
-    }
-    .image-placeholder {
-        height: 120px;
-    }
-    .plant-box {
-        height: 100px;
-    }
+  .header-title {
+    font-size: 1.5em;
+  }
+
+  .title h1 {
+    font-size: 2em;
+  }
+
+  .title h2 {
+    font-size: 2.5em;
+  }
+
+  .subtitle {
+    font-size: 1em;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plant-box {
+    height: 150px;
+  }
 }
