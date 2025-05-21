@@ -39,9 +39,9 @@
             background-color: var(--primary-color);
             padding: 15px 0;
             box-shadow: 0 2px 5px var(--card-shadow);
-            position: sticky; /* Fixa a barra de navegação no topo */
+            position: sticky; /* Mantém a barra de navegação no topo */
             top: 0;
-            z-index: 1000; /* Garante que fique acima de outros elementos */
+            z-index: 1000;
         }
 
         .navbar-content {
@@ -92,7 +92,7 @@
 
         /* Hero Section (Banner de Destaque) */
         .hero {
-            /* URL da imagem de fundo placeholder. Substitua por sua própria imagem! */
+            /* Imagem de fundo placeholder. Substitua por sua própria imagem! */
             background: linear-gradient(rgba(56, 102, 65, 0.7), rgba(56, 102, 65, 0.7)), url('https://via.placeholder.com/1920x600/386641/FFFFFF?text=Natureza+e+Beleza') no-repeat center center/cover;
             color: var(--light-text-color);
             text-align: center;
@@ -185,7 +185,7 @@
         h1 {
             color: var(--primary-color);
             font-family: 'Merriweather', serif;
-            font-size: 2.8em; /* Ajustado para harmonizar */
+            font-size: 2.8em;
             margin-bottom: 20px;
         }
 
@@ -204,11 +204,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Alinha o conteúdo ao topo */
-            min-height: 250px; /* Aumentar altura para a descrição */
+            justify-content: center;
+            min-height: 200px; /* Revertido para altura original */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative; /* Para posicionar o texto da descrição */
-            overflow: hidden; /* Esconde o conteúdo que transborda */
         }
 
         .plant-card:hover {
@@ -227,10 +225,9 @@
             align-items: center;
             font-size: 1.8em;
             color: var(--primary-color);
-            overflow: hidden; /* Garante que a imagem não transborde */
+            overflow: hidden;
         }
 
-        /* Estilo para imagens reais nos cards, se você as adicionar */
         .plant-card-image img {
             width: 100%;
             height: 100%;
@@ -238,28 +235,17 @@
             display: block;
         }
 
-        .plant-card h3 { /* Novo estilo para o nome da planta */
+        .plant-card-text {
+            background-color: var(--medium-green);
+            width: 90%;
+            height: 40px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--primary-color);
-            font-size: 1.3em;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .plant-description { /* Estilo para a descrição da planta */
-            font-size: 0.9em;
-            color: var(--text-color);
-            text-align: center;
-            height: 0; /* Começa com altura 0 */
-            opacity: 0; /* Começa invisível */
-            overflow: hidden;
-            transition: height 0.4s ease-out, opacity 0.4s ease-out; /* Transição para aparecer */
-        }
-
-        .plant-card:hover .plant-description {
-            height: auto; /* Altura automática para revelar o texto */
-            opacity: 1; /* Torna visível */
-            margin-top: 5px; /* Pequeno espaçamento */
+            font-weight: 600;
+            font-size: 1.1em;
         }
 
         /* Seção de Recursos Adicionais */
@@ -286,15 +272,11 @@
         }
 
         .resource-card {
-            background-color: #f0f0f0; /* Cor diferente para diferenciar */
+            background-color: #f0f0f0;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             text-align: left;
-            min-height: 200px; /* Garante altura mínima para alinhamento */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Empurra o link para baixo */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -313,22 +295,87 @@
         .resource-card p {
             font-size: 0.95em;
             color: var(--text-color);
-            flex-grow: 1; /* Faz o parágrafo crescer e empurrar o "Leia Mais" */
         }
 
-        /* Estilo para o "Leia Mais" como texto, não link clicável */
-        .resource-card .read-more-text {
+        .resource-card a { /* Voltando ao estilo de link para "Leia Mais" */
             display: inline-block;
             color: var(--secondary-color);
+            text-decoration: none;
             font-weight: 600;
             margin-top: 10px;
-            cursor: default; /* Remove o cursor de link */
-            /* Se quiser simular um clique, pode adicionar um hover visual aqui: */
-            /* text-decoration: underline; */
-            /* transition: color 0.3s ease; */
+            transition: color 0.3s ease;
         }
-        /* .resource-card .read-more-text:hover { color: var(--primary-color); } */ /* Opcional */
 
+        .resource-card a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Seção de Contato (Formulário Estático) - REINSERIDA */
+        .contact {
+            background-color: var(--light-text-color);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 15px var(--card-shadow);
+            margin-bottom: 40px;
+        }
+
+        .contact h2 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: calc(100% - 20px); /* Ajusta para padding */
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box; /* Inclui padding na largura total */
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: var(--secondary-color);
+            color: var(--light-text-color);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto; /* Para não ocupar 100% */
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #e66b6b;
+        }
 
         /* Rodapé */
         .footer {
@@ -403,7 +450,7 @@
             .hero h2 {
                 font-size: 2.5em;
             }
-            .about-us h2, .main-content h1, .resources h2 {
+            .about-us h2, .main-content h1, .resources h2, .contact h2 {
                 font-size: 2em;
             }
             .plants-grid, .resources-grid {
@@ -429,6 +476,18 @@
                 font-size: 0.9em;
                 padding: 10px 15px;
             }
+            .plant-card-text {
+                height: 30px;
+                font-size: 1em;
+            }
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group textarea {
+                width: calc(100% - 20px);
+            }
+            .form-group input[type="submit"] {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -445,7 +504,7 @@
                     <li><a href="#about">Sobre Nós</a></li>
                     <li><a href="#plants">Plantas</a></li>
                     <li><a href="#resources">Recursos</a></li>
-                </ul>
+                    <li><a href="#contact">Contato</a></li> </ul>
             </nav>
         </div>
     </header>
@@ -475,83 +534,51 @@
             <div class="plants-grid">
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
-                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Aloe Vera</text>
-                        </svg>
+                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Aloe+Vera" alt="Aloe Vera">
                     </div>
-                    <h3>Aloe Vera</h3>
-                    <p class="plant-description">Conhecida por suas propriedades calmantes e hidratantes, ideal para peles sensíveis e queimaduras solares. Rica em vitaminas e minerais.</p>
+                    <div class="plant-card-text">Aloe Vera</div>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
-                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Camomila</text>
-                        </svg>
+                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Camomila" alt="Camomila">
                     </div>
-                    <h3>Camomila</h3>
-                    <p class="plant-description">Possui efeito anti-inflamatório e clareador. Perfeita para suavizar a pele, reduzir vermelhidão e acalmar irritações.</p>
+                    <div class="plant-card-text">Camomila</div>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
-                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Rosa Mosqueta</text>
-                        </svg>
+                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Rosa+Mosqueta" alt="Rosa Mosqueta">
                     </div>
-                    <h3>Rosa Mosqueta</h3>
-                    <p class="plant-description">Reconhecida por suas propriedades regeneradoras e cicatrizantes. Auxilia na redução de manchas, rugas e linhas de expressão.</p>
+                    <div class="plant-card-text">Rosa Mosqueta</div>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
-                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Chá Verde</text>
-                        </svg>
+                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Ch%C3%A1+Verde" alt="Chá Verde">
                     </div>
-                    <h3>Chá Verde</h3>
-                    <p class="plant-description">Poderoso antioxidante, combate os radicais livres e previne o envelhecimento precoce. Ótimo para tonificar a pele.</p>
+                    <div class="plant-card-text">Chá Verde</div>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
-                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Lavanda</text>
-                        </svg>
+                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Lavanda" alt="Lavanda">
                     </div>
-                    <h3>Lavanda</h3>
-                    <p class="plant-description">Com aroma relaxante e propriedades antissépticas. Ajuda a acalmar a pele, aliviar picadas e promover um sono tranquilo.</p>
+                    <div class="plant-card-text">Lavanda</div>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
-                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Óleo de Coco</text>
-                        </svg>
+                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=%C3%93leo+de+Coco" alt="Óleo de Coco">
                     </div>
-                    <h3>Óleo de Coco</h3>
-                    <p class="plant-description">Excelente hidratante natural para pele e cabelo. Possui propriedades antimicrobianas e nutre profundamente.</p>
+                    <div class="plant-card-text">Óleo de Coco</div>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
-                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Calêndula</text>
-                        </svg>
+                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Calendula" alt="Calêndula">
                     </div>
-                    <h3>Calêndula</h3>
-                    <p class="plant-description">Com ação cicatrizante e anti-inflamatória, é ótima para peles sensíveis, irritadas e para tratar pequenas lesões.</p>
+                    <div class="plant-card-text">Calêndula</div>
                 </div>
                 <div class="plant-card">
                     <div class="plant-card-image">
-                        <svg width="100%" height="100%" viewBox="0 0 280 150" fill="#b7e4c7" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="280" height="150" rx="8" fill="#b7e4c7"/>
-                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Open Sans', sans-serif" font-size="28" fill="#386641">Alecrim</text>
-                        </svg>
+                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Alecrim" alt="Alecrim">
                     </div>
-                    <h3>Alecrim</h3>
-                    <p class="plant-description">Estimula a circulação, é um ótimo tônico capilar e tem propriedades antissépticas, ideal para pele e cabelo oleosos.</p>
+                    <div class="plant-card-text">Alecrim</div>
                 </div>
             </div>
         </section>
@@ -562,22 +589,43 @@
                 <div class="resource-card">
                     <h3>Guia de Extratos Naturais</h3>
                     <p>Descubra como extrair e utilizar os benefícios das plantas para cosméticos caseiros e tratamentos de pele e cabelo.</p>
-                    <span class="read-more-text">Leia Mais &rarr;</span> </div>
+                    <a href="#">Leia Mais &rarr;</a> </div>
                 <div class="resource-card">
                     <h3>Receitas de Beleza DIY</h3>
                     <p>Aprenda a fazer suas próprias máscaras faciais, cremes e loções com ingredientes 100% naturais e orgânicos.</p>
-                    <span class="read-more-text">Leia Mais &rarr;</span> </div>
+                    <a href="#">Leia Mais &rarr;</a> </div>
                 <div class="resource-card">
                     <h3>Benefícios de Óleos Essenciais</h3>
                     <p>Explore o mundo dos óleos essenciais e suas propriedades terapêuticas e estéticas. Guia completo para iniciantes.</p>
-                    <span class="read-more-text">Leia Mais &rarr;</span> </div>
+                    <a href="#">Leia Mais &rarr;</a> </div>
                 <div class="resource-card">
                     <h3>Sustentabilidade e Cosmética</h3>
                     <p>Entenda a importância de escolher produtos sustentáveis e como suas escolhas impactam o meio ambiente.</p>
-                    <span class="read-more-text">Leia Mais &rarr;</span> </div>
+                    <a href="#">Leia Mais &rarr;</a> </div>
             </div>
         </section>
 
+        <section id="contact" class="contact container">
+            <h2>Entre em Contato</h2>
+            <p>Tem alguma dúvida, sugestão ou quer compartilhar sua experiência? Preencha o formulário abaixo!</p>
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Seu Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Sua Mensagem:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Enviar Mensagem">
+                </div>
+            </form>
+        </section>
     </main>
 
     <footer class="footer">
@@ -589,7 +637,7 @@
                     <li><a href="#about">Sobre Nós</a></li>
                     <li><a href="#plants">Plantas</a></li>
                     <li><a href="#resources">Recursos</a></li>
-                </ul>
+                    <li><a href="#contact">Contato</a></li> </ul>
             </div>
             <div class="footer-section">
                 <h4>Informações</h4>
