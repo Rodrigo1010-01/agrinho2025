@@ -3,478 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantas Que Nos Beneficiam - Guia Completo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Variáveis CSS para facilitar a manutenção de cores */
-        :root {
-            --primary-color: #386641; /* Verde escuro */
-            --secondary-color: #f77f7f; /* Rosa salmão */
-            --light-green: #d2f7d0; /* Verde claro dos cards */
-            --medium-green: #b7e4c7; /* Verde médio dos placeholders */
-            --text-color: #333;
-            --light-text-color: #fff;
-            --gray-text: #777;
-            --background-color: #f4f4f4;
-            --card-shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: var(--primary-color);
-            padding: 15px 0;
-            box-shadow: 0 2px 5px var(--card-shadow);
-            position: sticky; /* Fixa a barra de navegação no topo */
-            top: 0;
-            z-index: 1000; /* Garante que fique acima de outros elementos */
-        }
-
-        .navbar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .navbar-brand {
-            color: var(--light-text-color);
-            font-size: 1.8em;
-            font-weight: bold;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar-brand img {
-            margin-right: 10px;
-            width: 30px;
-            height: 30px;
-        }
-
-        .nav-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: var(--light-text-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Hero Section (Banner de Destaque) */
-        .hero {
-            /* URL da imagem de fundo placeholder. Substitua por sua própria imagem! */
-            background: linear-gradient(rgba(56, 102, 65, 0.7), rgba(56, 102, 65, 0.7)), url('https://via.placeholder.com/1920x600/386641/FFFFFF?text=Natureza+e+Beleza') no-repeat center center/cover;
-            color: var(--light-text-color);
-            text-align: center;
-            padding: 100px 20px;
-            margin-bottom: 40px;
-        }
-
-        .hero h2 {
-            font-family: 'Merriweather', serif;
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        }
-
-        .hero p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 30px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .hero .btn:hover {
-            background-color: #e66b6b; /* Um tom ligeiramente mais escuro de secondary-color */
-        }
-
-        /* Seção Sobre Nós */
-        .about-us {
-            background-color: var(--light-text-color);
-            padding: 60px 20px;
-            text-align: center;
-            margin-bottom: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px var(--card-shadow);
-        }
-
-        .about-us h2 {
-            font-family: 'Merriweather', serif;
-            color: var(--primary-color);
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .about-us p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1em;
-            color: var(--text-color);
-        }
-
-        /* Seção Principal - Plantas Beneficiárias (seu código original adaptado) */
-        .main-content {
-            background-color: var(--light-text-color);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px var(--card-shadow);
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .header {
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
-            padding: 15px 20px;
-            border-radius: 50px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-
-        .header img {
-            width: 24px;
-            height: 24px;
-            margin: 0 10px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-family: 'Merriweather', serif;
-            font-size: 2.8em; /* Ajustado para harmonizar */
-            margin-bottom: 20px;
-        }
-
-        .plants-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Aumentado um pouco */
-            gap: 25px; /* Aumentado o gap */
-            margin-bottom: 30px;
-        }
-
-        .plant-card {
-            background-color: var(--light-green);
-            border-radius: 10px; /* Borda mais arredondada */
-            padding: 20px; /* Aumentado o padding */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px; /* Altura mínima maior */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de hover */
-        }
-
-        .plant-card:hover {
-            transform: translateY(-5px); /* Levanta o card no hover */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .plant-card-image {
-            background-color: var(--medium-green);
-            width: 100%;
-            height: 150px; /* Altura maior para a imagem */
-            border-radius: 8px; /* Borda da imagem mais arredondada */
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8em; /* Tamanho maior para o ícone/texto placeholder */
-            color: var(--primary-color);
-            overflow: hidden; /* Garante que a imagem não transborde */
-        }
-
-        .plant-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-            display: block; /* Remove espaço extra abaixo da imagem */
-        }
-
-        .plant-card-text {
-            background-color: var(--medium-green);
-            width: 90%; /* Mais largo */
-            height: 40px; /* Mais alto */
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-
-        /* Seção de Recursos Adicionais */
-        .resources {
-            background-color: var(--light-text-color);
-            padding: 60px 20px;
-            text-align: center;
-            margin-bottom: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px var(--card-shadow);
-        }
-
-        .resources h2 {
-            font-family: 'Merriweather', serif;
-            color: var(--primary-color);
-            font-size: 2.5em;
-            margin-bottom: 30px;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .resource-card {
-            background-color: #f0f0f0; /* Cor diferente para diferenciar */
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .resource-card h3 {
-            color: var(--primary-color);
-            font-size: 1.5em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .resource-card p {
-            font-size: 0.95em;
-            color: var(--text-color);
-        }
-
-        .resource-card a {
-            display: inline-block;
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .resource-card a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Rodapé */
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            max-width: 1000px;
-            margin: 0 auto 20px auto;
-            text-align: left;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 200px;
-            margin: 15px;
-        }
-
-        .footer-section h4 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-section ul li a {
-            color: var(--light-text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 20px;
-            margin-top: 20px;
-        }
-
-        /* Media Queries para Responsividade */
-        @media (max-width: 768px) {
-            .navbar-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                margin-top: 15px;
-            }
-            .nav-links li {
-                margin: 10px 0;
-            }
-            .hero h2 {
-                font-size: 2.5em;
-            }
-            .about-us h2, .main-content h1, .resources h2 { /* Removido .contact h2 */
-                font-size: 2em;
-            }
-            .plants-grid, .resources-grid {
-                grid-template-columns: 1fr; /* Uma coluna em telas menores */
-            }
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
-            .footer-section {
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 2em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-            .header {
-                font-size: 0.9em;
-                padding: 10px 15px;
-            }
-            .plant-card-text {
-                height: 30px;
-                font-size: 1em;
-            }
-        }
-    </style>
+    <title>Plantas Que Nos Beneficiam</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="navbar-content container">
-            <a href="#" class="navbar-brand">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjkybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9wYXRoPjwvc3ZnPg==" alt="Logo de Folha">
-                Plantas & Beleza
+    <div class="header">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6AOAAQAAAABAAAAHgAAAAAAA6QAAQAAAABAAAAHgAAAAAAAEgAAAABAAAASAAAAAEAAABIAAAAAQAAAABAAACJgAAAAAIAAgAAQAAAABAAACJgAAAAAA" alt="Folha Verde">
+        Uso De Plantas Como Cosméticos
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAERlElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6AOAAQAAAABAAAAHgAAAAAAA6QAAQAAAABAAAAHgAAAAAAAEgAAAABAAAASAAAAAEAAABIAAAAAQAAAABAAACJgAAAAAIAAgAAQAAAABAAACJgAAAAAA" alt="Folha Verde">
+    </div>
+
+    <div class="container">
+        <h1>Plantas<br>QUE NOS<br>BENEFICIAM</h1>
+
+        <div class="plants-grid">
+            <div class="plant-card">
+                <div class="plant-box">
+                    <img src="https://via.placeholder.com/200x200?text=Aloe+Vera" alt="Aloe Vera">
+                </div>
+                <h3 class="plant-name-label">Aloe Vera</h3>
+                <p class="description">Conhecida por suas propriedades calmantes e hidratantes, ideal para a pele e cabelo.</p>
+                <input type="checkbox" id="toggle-aloe-vera" class="read-more-toggle">
+                <label for="toggle-aloe-vera" class="read-more-btn">
+                    <span class="btn-text-more">Saiba Mais</span>
+                    <span class="btn-text-less">Ocultar</span>
+                </label>
+                <div class="more-info-content">
+                    <p><strong>Benefícios Cosméticos:</strong> Hidratação profunda, cicatrização de queimaduras, redução de inflamações, tratamento de acne.</p>
+                    <p><strong>Uso Comum:</strong> Géis, cremes, máscaras faciais e capilares. Pode ser aplicada diretamente na pele ou cabelo.</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <div class="plant-box">
+                    <img src="https://via.placeholder.com/200x200?text=Camomila" alt="Camomila">
+                </div>
+                <h3 class="plant-name-label">Camomila</h3>
+                <p class="description">Um clássico calmante, perfeito para peles sensíveis e irritadas, com efeitos clareadores suaves.</p>
+                <input type="checkbox" id="toggle-camomila" class="read-more-toggle">
+                <label for="toggle-camomila" class="read-more-btn">
+                    <span class="btn-text-more">Saiba Mais</span>
+                    <span class="btn-text-less">Ocultar</span>
+                </label>
+                <div class="more-info-content">
+                    <p><strong>Benefícios Cosméticos:</strong> Ação anti-inflamatória, clareamento de manchas, alívio de irritações, brilho para cabelos loiros.</p>
+                    <p><strong>Uso Comum:</strong> Tônicos faciais, cremes para olhos, shampoos e condicionadores, chás para compressas.</p>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <div class="plant-box">
+                    <img src="https://via.placeholder.com/200x200?text=Alecrim" alt="Alecrim">
+                </div>
+                <h3 class="plant-name-label">Alecrim</h3>
+                <p class="description">Estimulante e revigorante, ideal para o cuidado capilar e produtos que visam purificar a pele.</p>
+                <input type="checkbox" id="toggle-alecrim" class="read-more-toggle">
+                <label for="toggle-alecrim" class="read-more-btn">
+                    <span class="btn-text-more">Saiba Mais</span>
+                    <span class="btn-text-less">Ocultar</span>
+                </label>
+                <div class="more-info-content">
+                    <p><strong>Benefícios Cosméticos:</strong> Estimula o crescimento capilar, combate a oleosidade, ação antisséptica e antioxidante.</p>
+                    <p><strong>Uso Comum:</strong> Óleos essenciais para cabelo, shampoos para cabelos oleosos, sabonetes faciais e corporais.</p>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+    <div class="footer">
+        Direitos Autorais Reservados<br>Rodrigo
+        <div class="github-link">
+            <a href="https://github.com/SeuUsuario" target="_blank" aria-label="Visite meu GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.74.085-.725.085-.725 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.118-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.196-6.086 8.196-11.386 0-6.627-5.373-12-12-12z"/></svg>
             </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#about">Sobre Nós</a></li>
-                    <li><a href="#plants">Plantas</a></li>
-                    <li><a href="#resources">Recursos</a></li>
-                    </ul>
-            </nav>
         </div>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h2>Descubra o Poder Natural das Plantas</h2>
-                <p>Explore um mundo onde a natureza e a beleza se unem para beneficiar sua saúde e bem-estar. Conheça as plantas que transformam!</p>
-                <a href="#plants" class="btn">Conheça as Plantas</a>
-            </div>
-        </section>
-
-        <section id="about" class="about-us container">
-            <h2>Nossa Missão</h2>
-            <p>Acreditamos que a sabedoria da natureza oferece soluções incríveis para o nosso dia a dia. Nosso objetivo é compartilhar o conhecimento sobre plantas e seus usos benéficos, especialmente no campo da cosmética natural, promovendo uma vida mais saudável e sustentável.</p>
-            <p>Com um enfoque em pesquisa e informações confiáveis, buscamos ser sua fonte principal para descobrir as maravilhas que a flora pode oferecer para a sua beleza e saúde.</p>
-        </section>
-
-        <section id="plants" class="main-content container">
-            <div class="header">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjkybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9wYXRoPjwvc3ZnPg==" alt="Folha">
-                Uso De Plantas Como Cosméticos
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iaWNvbiBpY29uLXRhYmxlciBpY29uLXRhYmxlci1sZWFmIj48cGF0aCBkPSJNMTEuNzkgMi4xMDFjLjM5NCAtLjU4OSAxLjEwNCAtLjk2MSAxLjg0MSAtLjkybDIuOTAxIC4xMTZjMS4xNzcuMDUgMi4xNzUgLjg0MiAyLjQxMiAxLjk4OWwxLjI5MyA2LjE2OWMuMzI3IDEuNTYzLS40NTYgMy4xNTktMS44MTYgNC4wNjNsLTEuNjEgMS4wNzdjLS43OC41MjEtMS43NTguNzU5LTIuNzMyLjY4NWwtMi45ODkgLS4yMjNjLTEuMDY0LS4wOC0yLjAwMS0uNzk4LTIuMjgtMS43OWwtLjc0Mi0yLjYzYy0uMTctLjU1Ni0uNjM3LS45OTQtMS4yMjItMS4xNzRsLTIuNjMxLS44MmMtMS4wMjktLjMyLTEuNzYzLS45OTgtMS45MzktMi4wMThsLS4zMzYtMS42NDljLS4xNDEtLjY5OS4yNTktMS4zODYgLjg4My0xLjgxMmw1LjEyOC0zLjU1eiI+PC9wYXRoPjwvc3ZnPg==" alt="Folha">
-            </div>
-            <h1>Plantas<br>QUE NOS<br>BENEFICIAM</h1>
-            <div class="plants-grid">
-                <div class="plant-card">
-                    <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Aloe+Vera" alt="Aloe Vera">
-                    </div>
-                    <div class="plant-card-text">Aloe Vera</div>
-                </div>
-                <div class="plant-card">
-                    <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Camomila" alt="Camomila">
-                    </div>
-                    <div class="plant-card-text">Camomila</div>
-                </div>
-                <div class="plant-card">
-                    <div class="plant-card-image">
-                        <img src="https://via.placeholder.com/280x150/b7e4c7/386641?text=Rosa+Mosqueta" alt="Rosa Mosqueta">
-                    </div>
-                    <div class="plant-card-text">Rosa Mosqueta</div>
-                </div>
-                <div class="plant-card">
-                    <div class="plant-card-image">
-                        <img src
+    </div>
+</body>
+</html>
