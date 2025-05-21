@@ -22,6 +22,8 @@ body {
   background-color: var(--light-bg-green); /* Fundo geral suave */
   color: var(--text-color);
   line-height: 1.6;
+  /* NOVO: Customização do cursor para a flor */
+  cursor: url('/img/icons8-flower-doodle-50.png'), auto;
 }
 
 .header {
@@ -198,7 +200,7 @@ body {
   padding: 8px 15px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: pointer; /* O cursor aqui será o padrão ou da imagem caso o :hover não mude */
   margin-top: auto; /* Empurra o botão para o final da card */
   font-size: 0.95em;
   font-weight: 600;
@@ -228,8 +230,8 @@ body {
 }
 
 /* -----------------------------------------------------------------------
-   ESTILO PARA A CAIXA QUE ABRE ABAIXO DO BOTÃO (DROPDOWN)
-   -----------------------------------------------------------------------
+    ESTILO PARA A CAIXA QUE ABRE ABAIXO DO BOTÃO (DROPDOWN)
+    -----------------------------------------------------------------------
 */
 .more-info-content {
   max-height: 0; /* Começa com altura zero, escondido */
